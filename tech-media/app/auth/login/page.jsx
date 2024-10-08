@@ -1,5 +1,5 @@
 "use client";
-import { signIn } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import "./loguin.css";
@@ -9,7 +9,8 @@ export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isRegistering, setIsRegistering] = useState(false);
-
+  const { data: session, status } = useSession();
+  console.log(session?.user);
   const router = useRouter();
 
   const handleRegister = async (e) => {
@@ -35,6 +36,11 @@ export default function LoginPage() {
 
   const handleGoogleLogin = async () => {
     await signIn("google", { callbackUrl: "/" }); // Redirigir a la página principal "/"
+  };
+
+  const handleGithubLogin = async () => {
+    console.log("logueo github");
+    await signIn("github", { callbackUrl: "/" });
   };
 
   return (
@@ -122,6 +128,17 @@ export default function LoginPage() {
             className="google-logo"
           />
           Iniciar sesión con Google
+        </button>
+        <button
+          onClick={handleGithubLogin}
+          className="w-full bg-gray-800 text-white py-2 px-4 rounded-md hover:bg-gray-900 flex items-center justify-center"
+        >
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" // Logo de GitHub
+            alt="GitHub logo"
+            className="w-5 h-5 mr-2"
+          />
+          Iniciar sesión con GitHub
         </button>
       </div>
     </div>

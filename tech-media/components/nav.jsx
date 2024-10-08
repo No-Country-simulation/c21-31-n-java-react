@@ -16,7 +16,7 @@ export default function Nav() {
       clearUser(); // Limpiar el estado del usuario si no hay sesión
     }
   }, [session, setUser, clearUser]);
-
+  console.log(session?.user);
   return (
     <nav className="w-full h-12 flex justify-between items-center p-2.5">
       <div className="container-logo">
