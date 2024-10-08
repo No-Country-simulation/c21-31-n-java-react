@@ -1,27 +1,39 @@
 "use client";
 import { signIn } from "next-auth/react";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function LoginPage() {
-  // Estados para manejar el formulario
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isRegistering, setIsRegistering] = useState(false);
 
-  // Manejadores para el envío del formulario de registro o login
+  const router = useRouter();
+
   const handleRegister = async (e) => {
     e.preventDefault();
-    // Aquí iría la lógica para crear una cuenta
     console.log("Registering with:", { name, email, password });
-    // Puedes hacer una petición a tu backend para registrar al usuario
+    // Lógica para registrar al usuario aquí
   };
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    // Aquí iría la lógica para iniciar sesión
-    console.log("Logging in with:", { email, password });
-    signIn("credentials", { email, password });
+    const res = await signIn("credentials", {
+      redirect: false,
+      email,
+      password,
+    });
+
+    if (res.ok) {
+      router.push("/dashboard"); // O redirigir a otra página
+    } else {
+      console.log("Error en el login");
+    }
+  };
+
+  const handleGoogleLogin = async () => {
+    await signIn("google", { callbackUrl: "/" }); // Redirigir a la página principal "/"
   };
 
   return (
@@ -100,7 +112,7 @@ export default function LoginPage() {
         </button>
 
         <button
-          onClick={() => signIn("google")}
+          onClick={handleGoogleLogin}
           className="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600"
         >
           Iniciar sesión con Google
