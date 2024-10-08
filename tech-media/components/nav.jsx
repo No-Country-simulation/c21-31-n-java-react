@@ -1,4 +1,9 @@
+"use client";
+import { signIn, signOut, useSession } from "next-auth/react";
+
 export default function Nav() {
+  const { data: session } = useSession();
+  console.log(session);
   return (
     <nav className="w-full h-12 flex justify-between items-center p-2.5">
       <div className="container-logo">
@@ -15,6 +20,7 @@ export default function Nav() {
         <button>
           <a href="/login">Log In</a>
         </button>
+        <button onClick={() => signIn()}>SignIn</button>
       </div>
     </nav>
   );
