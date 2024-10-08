@@ -2,6 +2,7 @@
 import { signIn } from "next-auth/react";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import "./loguin.css";
 
 export default function LoginPage() {
   const [name, setName] = useState("");
@@ -55,6 +56,7 @@ export default function LoginPage() {
                 id="name"
                 type="text"
                 value={name}
+                placeholder="ingresa tu nombre"
                 onChange={(e) => setName(e.target.value)}
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm"
                 required
@@ -72,6 +74,7 @@ export default function LoginPage() {
               id="email"
               type="email"
               value={email}
+              placeholder="ingresa tu Email"
               onChange={(e) => setEmail(e.target.value)}
               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm"
               required
@@ -88,6 +91,7 @@ export default function LoginPage() {
               id="password"
               type="password"
               value={password}
+              placeholder="ingresa tu contraseña"
               onChange={(e) => setPassword(e.target.value)}
               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm"
               required
@@ -111,10 +115,12 @@ export default function LoginPage() {
             : "¿No tienes una cuenta? Regístrate aquí."}
         </button>
 
-        <button
-          onClick={handleGoogleLogin}
-          className="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600"
-        >
+        <button onClick={handleGoogleLogin} className="google-login-button">
+          <img
+            src="https://img.icons8.com/?size=512&id=17949&format=png"
+            alt="Google logo"
+            className="google-logo"
+          />
           Iniciar sesión con Google
         </button>
       </div>
