@@ -14,7 +14,7 @@ export default function NavInicio({ handleNavClick, paginaActiva }) {
               paginaActiva === "dest" && "text-blue-400"
             }`}
           >
-            Dest
+            Feed
           </button>
         </li>
         <li>

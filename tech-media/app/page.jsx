@@ -4,6 +4,8 @@ import BarraAmigos from "@/components/barra-amigos";
 import Nav from "@/components/nav";
 import NavInicio from "@/components/navInicio";
 import Publicaciones from "@/components/cardPublicacion";
+import PublicacionesSection from "@/components/seccionPublicacion";
+import Feed from "@/components/fedd";
 
 // pages/index.js
 export default function Home() {
@@ -34,25 +36,17 @@ export default function Home() {
         {/* Contenedor principal con barra lateral y contenido */}
         <div className="flex">
           {/* Barra lateral - Sugerencias de amigos */}
-          <div className="w-1/4">
-            <BarraAmigos amigos={amigos} />
-          </div>
 
           {/* Contenido principal */}
           <div className="w-3/4 ml-5">
-            {paginaActiva === "dest" && (
-              <div>
-                <h2 className="text-2xl font-bold">Página Dest</h2>
-                <p>Contenido de la sección Dest.</p>
-              </div>
-            )}
+            {paginaActiva === "dest" && <Feed></Feed>}
             {paginaActiva === "proyectos" && (
-              <div>
-                <h2 className="text-2xl font-bold">Página Proyectos</h2>
-                <p>Contenido de la sección Proyectos.</p>
-              </div>
+              <PublicacionesSection></PublicacionesSection>
             )}
             {paginaActiva === "destacados" && <Publicaciones></Publicaciones>}
+          </div>
+          <div className="w-1/4">
+            <BarraAmigos amigos={amigos} />
           </div>
         </div>
       </div>
