@@ -12,10 +12,11 @@ const handler = NextAuth({
       GitHubProvider({
         clientId: process.env.GITHUB_CLIENT_ID, // Tu Client ID
         clientSecret: process.env.GITHUB_CLIENT_SECRET, // Tu Client Secret
+        authorization: { params: { scope: 'read:user user:email' } },
       }),],
       pages: {
         signIn: '/auth/login',  // Personaliza la ruta de inicio de sesión
-      },
+      }
 })
 
 export {handler as GET ,handler as POST}

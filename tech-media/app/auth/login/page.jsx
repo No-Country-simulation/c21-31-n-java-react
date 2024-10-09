@@ -10,7 +10,7 @@ export default function LoginPage() {
   const [password, setPassword] = useState("");
   const [isRegistering, setIsRegistering] = useState(false);
   const { data: session, status } = useSession();
-  console.log(session?.user);
+  console.log(session?.user, status);
   const router = useRouter();
 
   const handleRegister = async (e) => {
@@ -129,14 +129,11 @@ export default function LoginPage() {
           />
           Iniciar sesión con Google
         </button>
-        <button
-          onClick={handleGithubLogin}
-          className="w-full bg-gray-800 text-white py-2 px-4 rounded-md hover:bg-gray-900 flex items-center justify-center"
-        >
+        <button onClick={handleGithubLogin} className="git-login-button">
           <img
             src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" // Logo de GitHub
             alt="GitHub logo"
-            className="w-5 h-5 mr-2"
+            className="github-logo"
           />
           Iniciar sesión con GitHub
         </button>
