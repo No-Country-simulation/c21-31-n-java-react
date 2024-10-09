@@ -2,7 +2,7 @@ export default function BarraAmigos({ amigos }) {
   return (
     <div className="flex">
       {/* Sidebar - Sugerencias de amigos */}
-      <div className="w-1/4 bg-gray-200 p-5 rounded-md">
+      <div className="w-4/4 bg-gray-200 p-5 rounded-md">
         <h3 className="font-bold">Sugerencias de amigos</h3>
         <div className="mt-4 space-y-4">
           {amigos.slice(0, 4).map((amigo, index) => (

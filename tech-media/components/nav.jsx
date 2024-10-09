@@ -1,6 +1,7 @@
 "use client";
 import { useUserStore } from "@/store";
 import { signIn, signOut, useSession } from "next-auth/react";
+import Link from "next/link";
 import { useEffect } from "react";
 
 export default function Nav() {
@@ -32,11 +33,14 @@ export default function Nav() {
       <div className="container-login">
         {session?.user ? (
           <div className="flex items-center">
-            <img
-              src={session.user.image}
-              alt="User Image"
-              className="w-10 h-10 rounded-full"
-            />
+            <Link href="/usuario">
+              <img
+                src={session.user.image}
+                alt="User Image"
+                className="w-10 h-10 rounded-full"
+              />
+            </Link>
+
             <button onClick={() => signOut()} className="ml-4">
               Logout
             </button>
