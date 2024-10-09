@@ -10,12 +10,12 @@ const handler = NextAuth({
         clientSecret: process.env.GOOGLE_SECRET
       }), 
       GitHubProvider({
-        clientId: process.env.GITHUB_CLIENT_ID, // Tu Client ID
-        clientSecret: process.env.GITHUB_CLIENT_SECRET, // Tu Client Secret
+        clientId: process.env.GITHUB_CLIENT_ID, 
+        clientSecret: process.env.GITHUB_CLIENT_SECRET, 
         authorization: { params: { scope: 'read:user user:email' } },
       }),],
       pages: {
-        signIn: '/auth/login',  // Personaliza la ruta de inicio de sesión
+        signIn: '/auth/login', 
       }
 })
 

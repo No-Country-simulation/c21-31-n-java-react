@@ -39,7 +39,7 @@ export default function LoginPage() {
   };
 
   const handleGithubLogin = async () => {
-    console.log("logueo github");
+    console.log("logueo git");
     await signIn("github", { callbackUrl: "/" });
   };
 
@@ -135,7 +135,7 @@ export default function LoginPage() {
             alt="GitHub logo"
             className="github-logo"
           />
-          Iniciar sesión con GitHub
+          Iniciar sesion con GitHub
         </button>
       </div>
     </div>
