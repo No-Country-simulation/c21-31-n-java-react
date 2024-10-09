@@ -30,12 +30,12 @@ export default function Nav() {
 
       {/* Navigation Links */}
       <div className="hidden md:flex w-1/2 h-16 justify-around items-center">
-        <a
+        <Link to="/"
           href="#"
           className="hover:text-yellow-400 transition duration-300 ease-in-out"
         >
           Inicio
-        </a>
+        </Link>
         <a
           href="#"
           className="hover:text-yellow-400 transition duration-300 ease-in-out"
