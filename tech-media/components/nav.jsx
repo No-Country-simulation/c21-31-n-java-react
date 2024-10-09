@@ -17,36 +17,76 @@ export default function Nav() {
       clearUser(); // Limpiar el estado del usuario si no hay sesión
     }
   }, [session, setUser, clearUser]);
-  console.log(session?.user);
+
   return (
-    <nav className="w-full h-12 flex justify-between items-center p-2.5">
+    <nav className="w-full h-16 flex justify-between items-center bg-gradient-to-r from-blue-600 to-indigo-600 p-4 shadow-lg text-white">
+      {/* Logo Section */}
       <div className="container-logo">
-        <h1>TechMedia</h1>
+        <h1 className="text-2xl font-bold tracking-wide text-white">
+          TechMedia
+        </h1>
       </div>
-      <div className="w-1/2 h-12 flex justify-around items-center">
-        <a href="">Inicio</a>
-        <a href="">Comunidad</a>
-        <a href="">Conexiones</a>
-        <a href="">Proyectos</a>
-        <a href="">Recursos</a>
+
+      {/* Navigation Links */}
+      <div className="w-1/2 h-16 flex justify-around items-center">
+        <a
+          href="#"
+          className="hover:text-yellow-400 transition duration-300 ease-in-out"
+        >
+          Inicio
+        </a>
+        <a
+          href="#"
+          className="hover:text-yellow-400 transition duration-300 ease-in-out"
+        >
+          Comunidad
+        </a>
+        <a
+          href="#"
+          className="hover:text-yellow-400 transition duration-300 ease-in-out"
+        >
+          Conexiones
+        </a>
+        <a
+          href="#"
+          className="hover:text-yellow-400 transition duration-300 ease-in-out"
+        >
+          Proyectos
+        </a>
+        <a
+          href="#"
+          className="hover:text-yellow-400 transition duration-300 ease-in-out"
+        >
+          Recursos
+        </a>
       </div>
-      <div className="container-login">
+
+      {/* User Section */}
+      <div className="container-login flex items-center">
         {session?.user ? (
-          <div className="flex items-center">
+          <div className="flex items-center space-x-4">
             <Link href="/usuario">
               <img
                 src={session.user.image}
                 alt="User Image"
-                className="w-10 h-10 rounded-full"
+                className="w-10 h-10 rounded-full border-2 border-white hover:scale-105 transition-transform duration-300"
               />
             </Link>
 
-            <button onClick={() => signOut()} className="ml-4">
+            <button
+              onClick={() => signOut()}
+              className="bg-red-500 px-4 py-1 rounded-md hover:bg-red-600 transition duration-300"
+            >
               Logout
             </button>
           </div>
         ) : (
-          <button onClick={() => signIn()}>Login</button>
+          <button
+            onClick={() => signIn()}
+            className="bg-green-500 px-4 py-1 rounded-md hover:bg-green-600 transition duration-300"
+          >
+            Login
+          </button>
         )}
       </div>
     </nav>
