@@ -2,12 +2,13 @@
 import { useUserStore } from "@/store";
 import { signIn, signOut, useSession } from "next-auth/react";
 import Link from "next/link";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function Nav() {
   const { data: session } = useSession();
   const setUser = useUserStore((state) => state.setUser);
   const clearUser = useUserStore((state) => state.clearUser);
+  const [isMenuOpen, setMenuOpen] = useState(false); // Estado para manejar el menú
 
   // Efecto para actualizar el estado global cuando cambia la sesión
   useEffect(() => {
@@ -28,7 +29,7 @@ export default function Nav() {
       </div>
 
       {/* Navigation Links */}
-      <div className="w-1/2 h-16 flex justify-around items-center">
+      <div className="hidden md:flex w-1/2 h-16 justify-around items-center">
         <a
           href="#"
           className="hover:text-yellow-400 transition duration-300 ease-in-out"
@@ -64,7 +65,7 @@ export default function Nav() {
       {/* User Section */}
       <div className="container-login flex items-center">
         {session?.user ? (
-          <div className="flex items-center space-x-4">
+          <div className="hidden md:flex items-center space-x-4">
             <Link href="/usuario">
               <img
                 src={session.user.image}
@@ -72,7 +73,6 @@ export default function Nav() {
                 className="w-10 h-10 rounded-full border-2 border-white hover:scale-105 transition-transform duration-300"
               />
             </Link>
-
             <button
               onClick={() => signOut()}
               className="bg-red-500 px-4 py-1 rounded-md hover:bg-red-600 transition duration-300"
@@ -87,6 +87,91 @@ export default function Nav() {
           >
             Login
           </button>
+        )}
+      </div>
+
+      {/* Menu Button for Mobile */}
+      <div className="md:hidden flex items-center ml-auto">
+        <button
+          onClick={() => setMenuOpen(!isMenuOpen)}
+          className="text-white focus:outline-none"
+        >
+          {/* Icono de hamburguesa */}
+          <svg
+            className="w-8 h-8"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M4 6h16M4 12h16m-7 6h7"
+            />
+          </svg>
+        </button>
+      </div>
+
+      {/* Mobile Menu */}
+      <div
+        className={`md:hidden absolute top-16 left-0 w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white transition-transform duration-300 ease-in-out z-10 ${
+          isMenuOpen ? "translate-y-0 opacity-100" : "-translate-y-4 opacity-0"
+        } overflow-hidden`}
+      >
+        {isMenuOpen && (
+          <div className="flex flex-col items-center py-2">
+            <a
+              href="#"
+              className="hover:text-yellow-400 transition duration-300 ease-in-out py-2"
+            >
+              Inicio
+            </a>
+            <a
+              href="#"
+              className="hover:text-yellow-400 transition duration-300 ease-in-out py-2"
+            >
+              Comunidad
+            </a>
+            <a
+              href="#"
+              className="hover:text-yellow-400 transition duration-300 ease-in-out py-2"
+            >
+              Conexiones
+            </a>
+            <a
+              href="#"
+              className="hover:text-yellow-400 transition duration-300 ease-in-out py-2"
+            >
+              Proyectos
+            </a>
+            <a
+              href="#"
+              className="hover:text-yellow-400 transition duration-300 ease-in-out py-2"
+            >
+              Recursos
+            </a>
+
+            {/* User Section in Mobile Menu */}
+            {session?.user && (
+              <div className="flex items-center space-x-4 mt-4">
+                <Link href="/usuario">
+                  <img
+                    src={session.user.image}
+                    alt="User Image"
+                    className="w-10 h-10 rounded-full border-2 border-white hover:scale-105 transition-transform duration-300"
+                  />
+                </Link>
+                <button
+                  onClick={() => signOut()}
+                  className="bg-red-500 px-4 py-1 rounded-md hover:bg-red-600 transition duration-300"
+                >
+                  Logout
+                </button>
+              </div>
+            )}
+          </div>
         )}
       </div>
     </nav>
