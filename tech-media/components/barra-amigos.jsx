@@ -19,7 +19,7 @@ export default function BarraAmigos({ amigos }) {
                   <p className="text-xs text-gray-500">{amigo.rol}</p>
                 </div>
               </div>
-              <button className="bg-blue-500 text-white px-2 py-1 rounded-md">
+              <button className="bg-blue-500 text-white px-4 py-1 rounded-md m-2">
                 Seguir
               </button>
             </div>
