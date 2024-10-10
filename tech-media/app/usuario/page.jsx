@@ -2,6 +2,7 @@
 
 import Nav from "@/components/nav";
 import { useUserStore } from "@/store"; // Importa el store para obtener el usuario
+import Link from "next/link";
 
 export default function Usuario() {
   const user = useUserStore((state) => state.user); // Obtén el usuario del store
@@ -26,10 +27,11 @@ export default function Usuario() {
                 {user?.nickname || "Apodo del Usuario"}
               </h2>
               <p className="text-gray-500">
-                Breve descrición del Usuario: Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                Assumenda recusandae nobis blanditiis possimus sed accusantium
-                pariatur temporibus numquam, officiis vero distinctio iusto
-                tempore porro quam corrupti. Fugiat voluptatem quisquam debitis.
+                Breve descrición del Usuario: Lorem ipsum dolor sit, amet
+                consectetur adipisicing elit. Assumenda recusandae nobis
+                blanditiis possimus sed accusantium pariatur temporibus numquam,
+                officiis vero distinctio iusto tempore porro quam corrupti.
+                Fugiat voluptatem quisquam debitis.
               </p>
             </div>
           </div>
@@ -44,9 +46,16 @@ export default function Usuario() {
       <div className="w-[95%] mx-auto bg-gray-100 p-2 rounded-lg shadow-md mt-8">
         <h2 className="text-xl font-bold mt-8">Proyectos</h2>
         <div className="mt-4">
+          <h3 className="text-lg font-bold">Título del Proyecto</h3>
+          <div className="w-full flex items-start">
+            <img
+              src="https://via.placeholder.com/400x200"
+              alt="Imagen preview Proyecto"
+              className="mb-5 border rounded-[7px]"
+            />
+          </div>
           {/* Aquí irá la lógica para mostrar múltiples proyectos */}
           <div className="bg-white p-4 rounded-lg shadow-sm mb-4">
-            <h3 className="text-lg font-bold">Título del Proyecto</h3>
             <p className="text-gray-500">
               Descirpción del proyecto: Lorem ipsum, dolor sit amet consectetur
               adipisicing elit. Ea veritatis, natus eos perspiciatis facere
@@ -60,7 +69,7 @@ export default function Usuario() {
           </div>
           <div className="flex justify-end">
             <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2">
-              Editar Proyecto
+              <Link href="">Editar Proyecto</Link>
             </button>
             <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
               Añadir Proyecto

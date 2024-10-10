@@ -30,8 +30,8 @@ export default function Nav() {
 
       {/* Navigation Links */}
       <div className="hidden md:flex w-1/2 h-16 justify-around items-center font-bold text-[18px]">
-        <Link to="/"
-          href="#"
+        <Link
+          href="/"
           className="hover:text-yellow-400 transition duration-300 ease-in-out"
         >
           Inicio
@@ -42,7 +42,8 @@ export default function Nav() {
         >
           Comunidad
         </a>
-        <Link href="/conexiones"
+        <Link
+          href="/conexiones"
           className="hover:text-yellow-400 transition duration-300 ease-in-out"
         >
           Conexiones
