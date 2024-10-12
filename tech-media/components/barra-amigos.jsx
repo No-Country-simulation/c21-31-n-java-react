@@ -1,7 +1,21 @@
+import { useState } from "react";
+
 export default function BarraAmigos({ amigos }) {
+  // Estado para cada botón de seguir/dejar de seguir
+  const [siguiendo, setSiguiendo] = useState(
+    amigos.slice(0, 4).map(() => false) // Inicializamos el estado con "false" para cada amigo
+  );
+
+  // Función para manejar el clic del botón
+  const manejarSeguir = (index) => {
+    // Alterna el estado de seguir/dejar de seguir
+    setSiguiendo((prevState) =>
+      prevState.map((estado, i) => (i === index ? !estado : estado))
+    );
+  };
+
   return (
     <div className="flex">
-      {/* Sidebar - Sugerencias de amigos */}
       <div className="w-4/4 bg-gray-200 p-5 rounded-md">
         <h3 className="font-bold">Sugerencias de amigos</h3>
         <div className="mt-4 space-y-4">
@@ -19,8 +33,13 @@ export default function BarraAmigos({ amigos }) {
                   <p className="text-xs text-gray-500">{amigo.rol}</p>
                 </div>
               </div>
-              <button className="bg-blue-500 text-white px-4 py-1 rounded-md m-2">
-                Seguir
+              <button
+                className={`${
+                  siguiendo[index] ? "bg-red-500" : "bg-blue-500"
+                } text-white p-4 py-1 rounded-md m-2`}
+                onClick={() => manejarSeguir(index)}
+              >
+                {siguiendo[index] ? "Cancelar" : "Seguir"}
               </button>
             </div>
           ))}

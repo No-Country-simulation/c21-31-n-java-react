@@ -20,7 +20,7 @@ export default function Usuario() {
               className="w-32 h-32 rounded-full mr-4"
             />
             <div className="">
-              <h1 className="text-2xl font-bold">
+              <h1 className="text-[30px] font-bold">
                 {user?.name || "Nombre del Usuario"}
               </h1>
               <h2 className="text-gray-600 text-xl font-bold">
@@ -37,16 +37,16 @@ export default function Usuario() {
           </div>
           <div className="w-full flex items-center justify-end">
             <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-              Editar Perfil
+              <Link href="/usuario-edit">Editar Perfil</Link>
             </button>
           </div>
         </div>
       </div>
 
       <div className="w-[95%] mx-auto bg-gray-100 p-2 rounded-lg shadow-md mt-8">
-        <h2 className="text-xl font-bold mt-8">Proyectos</h2>
+        <h2 className="text-[28px] font-bold mt-8">Proyectos</h2>
         <div className="mt-4">
-          <h3 className="text-lg font-bold">Título del Proyecto</h3>
+          <h2 className="text-[22px] font-bold">Título del Proyecto</h2>
           <div className="w-full flex items-start">
             <img
               src="https://via.placeholder.com/400x200"
@@ -79,7 +79,7 @@ export default function Usuario() {
       </div>
 
       <div className="w-[95%] mx-auto bg-gray-100 p-2 rounded-lg shadow-md mt-8 mb-8">
-        <h2 className="text-xl font-bold mt-8">Sobre Mí</h2>
+        <h2 className="text-[28px] font-bold mt-8 mb-4">Sobre Mí</h2>
         <div className="bg-white p-4 rounded-lg shadow-sm mb-4">
           <p className="text-gray-500">
             Describete, explica a que te dedicas y que sabes hacer: Lorem ipsum,
