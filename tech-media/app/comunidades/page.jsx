@@ -21,7 +21,7 @@ export default function Comunidades() {
   return (
     <>
       <Nav />
-      <div className="container-buscador flex items-center p-4">
+      <div className="container-buscador flex items-center p-4 justify-center">
         <svg
           width="30px"
           height="100%"
@@ -40,7 +40,7 @@ export default function Comunidades() {
         <input
           type="text"
           placeholder="Buscar comunidad"
-          className="input-buscar ml-4 border border-gray-300 p-2 rounded-md w-full"
+          className="input-buscar ml-4 border border-gray-300 p-2 rounded-md w-full max-w-[350px] outline-none"
         />
       </div>
 
