@@ -37,10 +37,10 @@ export default function Nav() {
           Inicio
         </Link>
         <a
-          href="#"
+          href="/comunidades"
           className="hover:text-yellow-400 transition duration-300 ease-in-out"
         >
-          Comunidad
+          Comunidades
         </a>
         <Link
           href="/conexiones"
