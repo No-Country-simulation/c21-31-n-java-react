@@ -1,0 +1,15 @@
+@media screen and (max-width: 360px) {
+	.container-user-chat {
+		flex-direction: column;
+		gap: 15px;
+	}
+
+	.container-datos-user {
+		flex-direction: column;
+		gap: 20px;
+	}
+
+	.main-contactos {
+		align-items: center;
+	}
+}

@@ -95,7 +95,7 @@ export default function ComponentInputCard() {
             onClick={() => setUploadType("multimedia")}
             style={buttonStyle(uploadType === "multimedia")}
           >
-            <span style={{ marginRight: "4px" }}>📷</span> Multimedia
+            <span className="flex items-center justify-center px-1">📷</span> Multimedia
           </button>
           <button
             onClick={() => setUploadType("file")}
