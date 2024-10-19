@@ -43,17 +43,17 @@ export default function Nav() {
           Comunidades
         </a>
         <Link
-          href="/conexiones"
+          href="/Contactos"
           className="hover:text-yellow-400 transition duration-300 ease-in-out"
         >
-          Conexiones
+          Contactos
         </Link>
-        <a
+        <Link
           href="#"
           className="hover:text-yellow-400 transition duration-300 ease-in-out"
         >
           Proyectos
-        </a>
+        </Link>
       </div>
 
       {/* User Section */}
@@ -111,42 +111,34 @@ export default function Nav() {
       {/* Mobile Menu */}
       <div
         className={`md:hidden absolute top-16 left-0 w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white z-10 transition-transform duration-500 ease-in-out opacity-100 ${
-          isMenuOpen
-            ? "translate-y-0"
-            : "-translate-y-full"
+          isMenuOpen ? "translate-y-0" : "-translate-y-full"
         }`}
       >
         {isMenuOpen && (
           <div className="flex flex-col items-center py-2">
-            <a
-              href="#"
+            <Link
+              href="/"
               className="hover:text-yellow-400 transition duration-300 ease-in-out py-2"
             >
               Inicio
-            </a>
-            <a
-              href="#"
+            </Link>
+            <Link
+              href="/comunidades"
               className="hover:text-yellow-400 transition duration-300 ease-in-out py-2"
             >
-              Comunidad
-            </a>
-            <a
-              href="#"
+              Comunidades
+            </Link>
+            <Link
+              href="/Contactos"
               className="hover:text-yellow-400 transition duration-300 ease-in-out py-2"
             >
-              Conexiones
-            </a>
+              Contactos
+            </Link>
             <a
               href="#"
               className="hover:text-yellow-400 transition duration-300 ease-in-out py-2"
             >
               Proyectos
-            </a>
-            <a
-              href="#"
-              className="hover:text-yellow-400 transition duration-300 ease-in-out py-2"
-            >
-              Recursos
             </a>
 
             {/* User Section in Mobile Menu */}
