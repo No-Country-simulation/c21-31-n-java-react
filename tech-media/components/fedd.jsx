@@ -4,7 +4,7 @@ export default function Feed() {
   // Array harcodeado de publicaciones
   const publicaciones = [
     {
-      titulo: "Proyecto 1",
+      titulo: "Publicación 1",
       descripcion:
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
       imagen: "https://via.placeholder.com/400x200",
@@ -15,7 +15,7 @@ export default function Feed() {
       },
     },
     {
-      titulo: "Proyecto 2",
+      titulo: "Publicación 2",
       descripcion:
         "Lorem Ipsum has been the industry's standard dummy text ever since.",
       imagen: "https://via.placeholder.com/400x200",
@@ -26,7 +26,7 @@ export default function Feed() {
       },
     },
     {
-      titulo: "Proyecto 3",
+      titulo: "Publicación 3",
       descripcion:
         "It has survived not only five centuries, but also the leap into electronic typesetting.",
       imagen: "https://via.placeholder.com/400x200",
@@ -39,9 +39,9 @@ export default function Feed() {
   ];
 
   return (
-    <div className="p-5 flex">
+    <div className="p-5 flex flex-col lg:flex-row">
       {/* Contenedor de publicaciones (lado izquierdo) */}
-      <div className="w-2/4 flex flex-col gap-5 mr-8">
+      <div className="w-full lg:w-2/4 flex flex-col gap-5 mr-0 lg:mr-8 mb-8 lg:mb-0">
         {publicaciones.map((publicacion, index) => (
           <div
             key={index}
@@ -84,7 +84,7 @@ export default function Feed() {
       </div>
 
       {/* Componente de subir proyecto (lado derecho) */}
-      <div className="w-2/4 flex justify-end">
+      <div className="w-full lg:w-2/4 flex justify-end">
         <div className="w-full">
           <ComponentInputCard />
         </div>

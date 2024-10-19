@@ -5,7 +5,7 @@ export default function Publicaciones() {
       titulo: "Proyecto 1",
       descripcion:
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-      imagen: "https://via.placeholder.com/400x200",
+      imagen: "https://via.placeholder.com/1015x195",
       usuario: {
         nombre: "Ezequiel",
         apellido: "Ramos",
@@ -16,7 +16,7 @@ export default function Publicaciones() {
       titulo: "Proyecto 2",
       descripcion:
         "Lorem Ipsum has been the industry's standard dummy text ever since.",
-      imagen: "https://via.placeholder.com/400x200",
+      imagen: "https://via.placeholder.com/1015x195",
       usuario: {
         nombre: "Juan",
         apellido: "Lencina",
@@ -27,7 +27,7 @@ export default function Publicaciones() {
       titulo: "Proyecto 3",
       descripcion:
         "It has survived not only five centuries, but also the leap into electronic typesetting.",
-      imagen: "https://via.placeholder.com/400x200",
+      imagen: "https://via.placeholder.com/1015x195",
       usuario: {
         nombre: "Mateo",
         apellido: "Gomez",
@@ -41,7 +41,7 @@ export default function Publicaciones() {
       {publicaciones.map((publicacion, index) => (
         <div
           key={index}
-          className="bg-gray-200 p-5 rounded-md shadow-md mb-5 w-full max-w-md"
+          className="bg-gray-200 p-5 rounded-md shadow-md mb-5"
         >
           {/* Información del usuario */}
           <div className="flex justify-between items-center mb-3">

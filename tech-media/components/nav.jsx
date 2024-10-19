@@ -57,9 +57,9 @@ export default function Nav() {
       </div>
 
       {/* User Section */}
-      <div className="container-login flex items-center">
+      <div className="container-login hidden md:flex items-center">
         {session?.user ? (
-          <div className="hidden md:flex items-center space-x-4">
+          <div className="flex items-center space-x-4">
             <Link href="/usuario">
               <img
                 src={session.user.image}
@@ -110,9 +110,11 @@ export default function Nav() {
 
       {/* Mobile Menu */}
       <div
-        className={`md:hidden absolute top-16 left-0 w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white transition-transform duration-300 ease-in-out z-10 ${
-          isMenuOpen ? "translate-y-0 opacity-100" : "-translate-y-4 opacity-0"
-        } overflow-hidden`}
+        className={`md:hidden absolute top-16 left-0 w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white z-10 transition-transform duration-500 ease-in-out opacity-100 ${
+          isMenuOpen
+            ? "translate-y-0"
+            : "-translate-y-full"
+        }`}
       >
         {isMenuOpen && (
           <div className="flex flex-col items-center py-2">
@@ -148,7 +150,7 @@ export default function Nav() {
             </a>
 
             {/* User Section in Mobile Menu */}
-            {session?.user && (
+            {session?.user ? (
               <div className="flex items-center space-x-4 mt-4">
                 <Link href="/usuario">
                   <img
@@ -164,6 +166,13 @@ export default function Nav() {
                   Logout
                 </button>
               </div>
+            ) : (
+              <button
+                onClick={() => signIn()}
+                className="bg-green-500 px-4 py-1 rounded-md hover:bg-green-600 transition duration-300 mt-4"
+              >
+                Login
+              </button>
             )}
           </div>
         )}

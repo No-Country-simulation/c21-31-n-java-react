@@ -22,59 +22,17 @@ export default function ComponentInputCard() {
     // Future implementation for sending data to the server
   };
 
-  const buttonStyle = (active) => ({
-    flex: 1,
-    padding: "8px",
-    border: "1px solid #ccc",
-    borderRadius: "4px",
-    backgroundColor: active ? "#e0e0e0" : "white",
-    cursor: "pointer",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-  });
-
   return (
-    <div
-      style={{
-        width: "100%",
-        maxWidth: "400px",
-        padding: "24px",
-        border: "1px solid #ccc",
-        borderRadius: "8px",
-        boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
-      }}
-    >
-      <div
-        style={{ display: "flex", alignItems: "center", marginBottom: "16px" }}
-      >
-        <div
-          style={{
-            width: "40px",
-            height: "40px",
-            borderRadius: "50%",
-            backgroundColor: "#e0e0e0",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            marginRight: "16px",
-            fontSize: "20px",
-            fontWeight: "bold",
-            color: "#666",
-          }}
-        >
+    <div className="w-full max-w-sm p-6 border border-gray-300 rounded-lg shadow-md">
+      <div className="flex items-center mb-4">
+        <div className="w-10 h-10 rounded-full bg-gray-300 flex items-center justify-center mr-4 text-lg font-bold text-gray-600">
           E
         </div>
-        <h2 style={{ fontSize: "20px", fontWeight: "bold" }}>
-          Subir un proyecto
-        </h2>
+        <h2 className="text-lg font-bold">Subir un proyecto</h2>
       </div>
-      <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+      <div className="flex flex-col gap-4">
         <div>
-          <label
-            htmlFor="project-name"
-            style={{ display: "block", marginBottom: "4px" }}
-          >
+          <label htmlFor="project-name" className="block mb-1">
             Nombre del proyecto
           </label>
           <input
@@ -82,55 +40,43 @@ export default function ComponentInputCard() {
             value={projectName}
             onChange={(e) => setProjectName(e.target.value)}
             placeholder="Ingrese el nombre del proyecto"
-            style={{
-              width: "100%",
-              padding: "8px",
-              border: "1px solid #ccc",
-              borderRadius: "4px",
-            }}
+            className="w-full p-2 border border-gray-300 rounded-md"
           />
         </div>
-        <div style={{ display: "flex", gap: "8px" }}>
-          <button
+        <div className="flex gap-2">
+          {/* <button
             onClick={() => setUploadType("multimedia")}
-            style={buttonStyle(uploadType === "multimedia")}
+            className={`flex-1 p-2 border ${
+              uploadType === "multimedia" ? "bg-gray-200" : "bg-white"
+            } border-gray-300 rounded-md flex items-center justify-center`}
           >
-            <span className="flex items-center justify-center px-1">📷</span> Multimedia
-          </button>
-          <button
+            <span className="mr-1">📷</span> Multimedia
+          </button> */}
+          {/* <button
             onClick={() => setUploadType("file")}
-            style={buttonStyle(uploadType === "file")}
+            className={`flex-1 p-2 border ${
+              uploadType === "file" ? "bg-gray-200" : "bg-white"
+            } border-gray-300 rounded-md flex items-center justify-center`}
           >
-            <span style={{ marginRight: "4px" }}>📎</span> Archivo adjunto
-          </button>
+            <span className="mr-1">📎</span> Archivo adjunto
+          </button> */}
           <button
             onClick={() => setUploadType("code")}
-            style={buttonStyle(uploadType === "code")}
+            className={`flex-1 p-2 border ${
+              uploadType === "code" ? "bg-gray-200" : "bg-white"
+            } border-gray-300 rounded-md flex items-center justify-center`}
           >
-            <span style={{ marginRight: "4px" }}>💻</span> Fragmento de Código
+            <span className="mr-1">💻</span> Fragmento de Código
           </button>
         </div>
         <input
           type="file"
           onChange={handleFileChange}
-          style={{
-            width: "100%",
-            padding: "8px",
-            border: "1px solid #ccc",
-            borderRadius: "4px",
-          }}
+          className="w-full p-2 border border-gray-300 rounded-md"
         />
         <button
           onClick={handleUpload}
-          style={{
-            width: "100%",
-            padding: "10px",
-            backgroundColor: "#4a90e2",
-            color: "white",
-            border: "none",
-            borderRadius: "4px",
-            cursor: "pointer",
-          }}
+          className="w-full p-3 bg-blue-500 text-white rounded-md"
         >
           Subir Proyecto
         </button>

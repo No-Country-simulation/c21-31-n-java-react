@@ -47,7 +47,7 @@ export default function Comunidades() {
       <div className="flex flex-col lg:flex-row p-8 gap-8">
         {/* Sugerencias de grupos */}
         <div className="w-full lg:w-1/2 bg-gray-200 p-5 rounded-md">
-          <h3 className="font-bold mb-4">Sugerencias de grupos</h3>
+          <h3 className="font-bold mb-4">Sugerencias de Comunidades</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {gruposSugeridos.map((grupo, index) => (
               <div
