@@ -1,0 +1,14 @@
+.container-logo svg {
+	transform: rotate(-20deg);
+	transition: transform 2s ease-in-out;
+}
+
+.container-logo:hover svg {
+	animation: spin 4s ease-in-out infinite;
+}
+
+@keyframes spin {
+	100% {
+		transform: rotate(340deg);
+	}
+}
