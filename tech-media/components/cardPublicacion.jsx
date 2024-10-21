@@ -39,12 +39,9 @@ export default function Publicaciones() {
   return (
     <div className="p-5">
       {publicaciones.map((publicacion, index) => (
-        <div
-          key={index}
-          className="bg-gray-200 p-5 rounded-md shadow-md mb-5"
-        >
+        <div key={index} className="bg-gray-200 p-5 rounded-md shadow-md mb-5">
           {/* Información del usuario */}
-          <div className="flex justify-between items-center mb-3">
+          <div className="flex justify-between items-center mb-3 container-datos-user-publicacion">
             <div className="flex items-center">
               <div className="bg-gray-500 w-10 h-10 rounded-full flex items-center justify-center text-white">
                 {publicacion.usuario.nombre[0]}

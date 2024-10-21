@@ -1,6 +1,8 @@
 import { useState } from "react";
 
-export default function BarraAmigos({ amigos }) {
+import "./barra-amigos.css";
+
+export default function BarraAmigos({ amigos = [] }) {
   // Estado para cada botón de seguir/dejar de seguir
   const [siguiendo, setSiguiendo] = useState(
     amigos.slice(0, 4).map(() => false) // Inicializamos el estado con "false" para cada amigo
@@ -16,15 +18,15 @@ export default function BarraAmigos({ amigos }) {
 
   return (
     <div className="flex">
-      <div className="w-4/4 bg-gray-200 p-5 rounded-md">
-        <h3 className="font-bold">Sugerencias de amigos</h3>
-        <div className="mt-4 space-y-4">
+      <div className="w-4/4 bg-gray-200 p-5 rounded-md container-general-cards-amigos">
+        <h2 className="text-lg font-bold title-amigos">Sugerencias de amigos</h2>
+        <div className="mt-4 space-y-4 container-cards-amigos">
           {amigos.slice(0, 4).map((amigo, index) => (
             <div
               key={index}
-              className="flex justify-between items-center bg-white p-3 rounded-md shadow-md"
+              className="flex justify-between items-center bg-white p-3 rounded-md shadow-md card-amigos"
             >
-              <div className="flex items-center">
+              <div className="flex items-center renders-card">
                 <div className="bg-gray-300 w-10 h-10 rounded-full"></div>
                 <div className="ml-2">
                   <p className="font-bold">

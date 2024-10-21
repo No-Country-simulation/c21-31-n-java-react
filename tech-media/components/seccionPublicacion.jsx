@@ -2,6 +2,7 @@ import ComponentInputCard from "./cardCreate";
 
 export default function PublicacionesSection() {
   // Array harcodeado de publicaciones
+  const llave = true
   const publicaciones = [
     {
       titulo: "Proyecto 1",
@@ -86,7 +87,7 @@ export default function PublicacionesSection() {
       {/* Componente de subir proyecto (lado derecho) */}
       <div className="w-2/4 flex justify-end">
         <div className="w-full">
-          <ComponentInputCard />
+          <ComponentInputCard llave={llave}/>
         </div>
       </div>
     </div>

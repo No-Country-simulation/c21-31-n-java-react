@@ -1,0 +1,16 @@
+@media screen and (max-width: 768px) {
+	.container-general-create-publi {
+		height: auto;
+		margin-bottom: 15px;
+	}
+
+	.container-superior-publi {
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.textarea-publi {
+		width: 100%;
+	}
+}

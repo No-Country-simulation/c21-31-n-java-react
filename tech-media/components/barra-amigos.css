@@ -1,0 +1,22 @@
+@media (max-width: 1023px) {
+	.container-general-cards-amigos {
+		text-align: center;
+	}
+
+	.container-cards-amigos {
+		display: flex;
+		justify-content: space-around;
+		flex-wrap: wrap;
+		gap: 20px;
+	}
+
+	.card-amigos {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.renders-card {
+		min-height: 100px;
+		flex-direction: column;
+	}
+}

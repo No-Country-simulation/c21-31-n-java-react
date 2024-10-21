@@ -7,6 +7,8 @@ import Publicaciones from "@/components/cardPublicacion";
 import PublicacionesSection from "@/components/seccionPublicacion";
 import Feed from "@/components/fedd";
 
+import "./home.css";
+
 // pages/index.js
 export default function Home() {
   const amigos = [
@@ -34,18 +36,16 @@ export default function Home() {
         ></NavInicio>
 
         {/* Contenedor principal con barra lateral y contenido */}
-        <div className="flex">
-          {/* Barra lateral - Sugerencias de amigos */}
-
+        <div className="flex flex-col lg:flex-row">
           {/* Contenido principal */}
-          <div className="w-3/4 ml-5">
-            {paginaActiva === "dest" && <Feed></Feed>}
-            {paginaActiva === "proyectos" && (
-              <PublicacionesSection></PublicacionesSection>
-            )}
-            {paginaActiva === "destacados" && <Publicaciones></Publicaciones>}
+          <div className="w-full lg:w-3/4 lg:ml-5 mb-5 lg:mb-0">
+            {paginaActiva === "dest" && <Feed amigos={amigos}/>}
+            {paginaActiva === "proyectos" && <PublicacionesSection />}
+            {paginaActiva === "destacados" && <Publicaciones />}
           </div>
-          <div className="w-1/4">
+
+          {/* Barra lateral - Sugerencias de amigos */}
+          <div className="flex flex-col w-full lg:w-1/4 md:items-center barra-amigos-pc">
             <BarraAmigos amigos={amigos} />
           </div>
         </div>
