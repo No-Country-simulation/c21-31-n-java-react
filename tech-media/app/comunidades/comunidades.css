@@ -1,0 +1,15 @@
+@media screen and (max-width: 539px) {
+	.icon-users {
+		display: none;
+	}
+}
+
+@media screen and (max-width: 250px) {
+	.title-comunidades {
+		font-size: 30px;
+	}
+
+	.img-comunidades {
+		scale: 0.8;
+	}
+}

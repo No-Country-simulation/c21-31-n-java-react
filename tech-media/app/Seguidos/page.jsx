@@ -3,7 +3,7 @@ import Link from "next/link";
 
 import "./contactos.css";
 
-export default function Contactos() {
+export default function Seguidos() {
   const users = [
     {
       name: "Melina Sanchez",
@@ -47,12 +47,12 @@ export default function Contactos() {
     <>
       <Nav />
       <div className="flex items-center justify-center flex-col m-4">
-        <h1 className="text-[25px]">Contactos</h1>
+        <h1 className="text-[25px]">Seguidos</h1>
         <hr className="w-full max-w-[350px] border-b-2" />
       </div>
       <div className="flex items-center justify-between m-4 flex-col md:flex-row">
         <div>
-          <h3>378 Contactos</h3>
+          <h3>30 Seguidos</h3>
         </div>
         <div className="w-full max-w-[100px] flex items-center justify-between mt-2 md:mt-0">
           <svg

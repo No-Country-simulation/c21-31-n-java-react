@@ -46,24 +46,24 @@ export default function Nav() {
         >
           Inicio
         </Link>
-        <a
+        <Link
+          href="/Seguidos"
+          className="hover:text-yellow-400 transition duration-300 ease-in-out"
+        >
+          Seguidos
+        </Link>
+        <Link
           href="/comunidades"
           className="hover:text-yellow-400 transition duration-300 ease-in-out"
         >
           Comunidades
-        </a>
-        <Link
-          href="/Contactos"
-          className="hover:text-yellow-400 transition duration-300 ease-in-out"
-        >
-          Contactos
         </Link>
-        <Link
+        {/* <Link
           href="#"
           className="hover:text-yellow-400 transition duration-300 ease-in-out"
         >
           Proyectos
-        </Link>
+        </Link> */}
       </div>
 
       {/* User Section */}
@@ -133,23 +133,23 @@ export default function Nav() {
               Inicio
             </Link>
             <Link
+              href="/Contactos"
+              className="hover:text-yellow-400 transition duration-300 ease-in-out py-2"
+            >
+              Seguidos
+            </Link>
+            <Link
               href="/comunidades"
               className="hover:text-yellow-400 transition duration-300 ease-in-out py-2"
             >
               Comunidades
             </Link>
-            <Link
-              href="/Contactos"
-              className="hover:text-yellow-400 transition duration-300 ease-in-out py-2"
-            >
-              Contactos
-            </Link>
-            <a
+            {/* <a
               href="#"
               className="hover:text-yellow-400 transition duration-300 ease-in-out py-2"
             >
               Proyectos
-            </a>
+            </a> */}
 
             {/* User Section in Mobile Menu */}
             {session?.user ? (
