@@ -22,7 +22,7 @@ export default function Nav() {
   }, [session, setUser, clearUser]);
 
   return (
-    <nav className="fixed w-full h-16 flex justify-between items-center bg-gradient-to-r from-blue-600 to-indigo-600 p-4 shadow-lg text-white z-50">
+    <nav className="fixed top-0 w-full h-16 flex justify-between items-center bg-gradient-to-r from-blue-600 to-indigo-600 p-4 shadow-lg text-white z-50">
       {/* Logo Section */}
       <div className="container-logo">
         <h1 className="flex text-2xl tracking-wide text-white gap-[5px]">

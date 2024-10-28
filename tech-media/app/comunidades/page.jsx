@@ -103,7 +103,7 @@ export default function Comunidades() {
           </div>
         </div>
       </div> */}
-      <div className="flex items-center justify-center gap-[10px] mt-4">
+      <div className="flex items-center justify-center gap-[10px] mt-20">
         <h1 className="text-4xl text-center font-bold title-comunidades">Comunidades próximamente</h1>
         <svg
           xmlns="http://www.w3.org/2000/svg"

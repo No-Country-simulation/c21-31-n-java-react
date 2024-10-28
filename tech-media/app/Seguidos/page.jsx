@@ -46,7 +46,7 @@ export default function Seguidos() {
   return (
     <>
       <Nav />
-      <div className="flex items-center justify-center flex-col m-4">
+      <div className="flex items-center justify-center flex-col m-4 mt-20">
         <h1 className="text-[25px]">Seguidos</h1>
         <hr className="w-full max-w-[350px] border-b-2" />
       </div>
@@ -91,6 +91,7 @@ export default function Seguidos() {
 
       <main className="flex flex-col md:flex-row justify-center w-[80%] m-auto main-contactos">
         <div className="w-full md:w-[50%] bg-gray-200 m-4 p-4 rounded-lg">
+          <h1 className="text-xl font-bold text-lef mb-6">Mis contactos</h1>
           {users.map((user, index) => (
             <div
               key={index}
@@ -134,7 +135,7 @@ export default function Seguidos() {
           ))}
         </div>
         <div className="w-full md:w-[50%] m-4 bg-gray-200 p-6 rounded-lg">
-          <h2 className="text-xl font-bold text-center mb-6">
+          <h2 className="text-xl font-bold text-right mb-6">
             Más sugerencias para ti
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

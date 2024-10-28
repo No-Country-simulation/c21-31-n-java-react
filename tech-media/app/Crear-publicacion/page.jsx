@@ -8,7 +8,7 @@ export default function CreatePublicacion() {
       <Nav></Nav>
       {/* <h1>Crear Publicación</h1> */}
 
-      <div className="w-[65%] h-[260px] flex flex-col justify-top items-center mt-2 bg-gray-200 m-auto p-1 rounded-[10px] container-general-create-publi">
+      <div className="w-[65%] h-[280px] flex flex-col justify-top items-center mt-2 bg-gray-200 m-auto p-1 rounded-[10px] container-general-create-publi mt-20">
         <div className="w-full flex justify-around items-center p-4 container-superior-publi">
           <div className="w-full flex flex-col justify-center items-center gap-1 mt-4 container-content-publi">
             <div className="flex flex-col w-full p-1">
@@ -75,7 +75,9 @@ export default function CreatePublicacion() {
           </svg>
         </div>
         <div className="w-full text-end">
-          <button className="bg-blue-500 text-white px-3 py-1 rounded-md mt-3 mb-2">Publicar</button>
+          <button className="bg-blue-500 text-white px-3 py-1 rounded-md mt-3 mb-2">
+            Publicar
+          </button>
         </div>
       </div>
     </>
