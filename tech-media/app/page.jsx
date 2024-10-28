@@ -26,7 +26,7 @@ export default function Home() {
   return (
     <>
       <Nav />
-      <div className="min-h-screen p-5">
+      <div className="min-h-screen p-5 flex flex-col justify-center">
         {/* Navbar */}
         <div className="sticky top-16 bg-white p-4 z-10">
           <NavInicio
@@ -38,7 +38,7 @@ export default function Home() {
         {/* Contenedor principal con barra lateral y contenido */}
         <div className="flex flex-col lg:flex-row">
           {/* Contenido principal */}
-          <div className="w-full lg:w-3/4 lg:ml-5 mb-5 lg:mb-0">
+          <div className="w-full lg:w-3/4 mb-5">
             {paginaActiva === "dest" && <Feed amigos={amigos} />}
             {paginaActiva === "proyectos" && <PublicacionesSection />}
             {paginaActiva === "destacados" && <Publicaciones />}

@@ -23,7 +23,7 @@ export default function ComponentInputCard({ llave }) {
   };
 
   return (
-    <div className="w-full max-w-sm p-9 bg-white border border-gray-300 rounded-lg shadow-md fixed top-52">
+    <div className="w-full max-w-sm p-9 bg-white border border-gray-300 rounded-lg shadow-md fixed top-52 left-9">
       <div className="flex items-center mb-4">
         <div className="w-10 h-10 rounded-full bg-gray-300 flex items-center justify-center mr-4 text-lg font-bold text-gray-600">
           E
@@ -130,12 +130,23 @@ export default function ComponentInputCard({ llave }) {
           onChange={handleFileChange}
           className="w-full p-2 border border-gray-300 rounded-md"
         />
-        <button
-          onClick={handleUpload}
-          className="w-full p-3 bg-blue-500 text-white rounded-md"
-        >
-          Subir Proyecto
-        </button>
+        {!llave ? (
+          <>
+            <button
+              onClick={handleUpload}
+              className="w-full p-3 bg-blue-500 text-white font-bold rounded-md"
+            >
+              Subir Publicación
+            </button>
+          </>
+        ) : (
+          <button
+            onClick={handleUpload}
+            className="w-full p-3 bg-blue-500 text-white font-bold rounded-md"
+          >
+            Subir Proyecto
+          </button>
+        )}
       </div>
     </div>
   );
