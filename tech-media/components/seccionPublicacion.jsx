@@ -1,8 +1,10 @@
 import ComponentInputCard from "./cardCreate";
 
+import "./seccion-publicacion.css";
+
 export default function PublicacionesSection() {
   // Array harcodeado de publicaciones
-  const llave = true
+  const llave = true;
   const publicaciones = [
     {
       titulo: "Proyecto 1",
@@ -37,12 +39,73 @@ export default function PublicacionesSection() {
         rol: "Desarrollador Fullstack",
       },
     },
+    {
+      titulo: "Publicación 4",
+      descripcion:
+        "It has survived not only five centuries, but also the leap into electronic typesetting.",
+      imagen: "https://via.placeholder.com/400x200",
+      usuario: {
+        nombre: "Mateo",
+        apellido: "Gomez",
+        rol: "Desarrollador Fullstack",
+      },
+    },
+    {
+      titulo: "Publicación 5",
+      descripcion:
+        "It has survived not only five centuries, but also the leap into electronic typesetting.",
+      imagen: "https://via.placeholder.com/400x200",
+      usuario: {
+        nombre: "Mateo",
+        apellido: "Gomez",
+        rol: "Desarrollador Fullstack",
+      },
+    },
+    {
+      titulo: "Publicación 6",
+      descripcion:
+        "It has survived not only five centuries, but also the leap into electronic typesetting.",
+      imagen: "https://via.placeholder.com/400x200",
+      usuario: {
+        nombre: "Mateo",
+        apellido: "Gomez",
+        rol: "Desarrollador Fullstack",
+      },
+    },
+    {
+      titulo: "Publicación 7",
+      descripcion:
+        "It has survived not only five centuries, but also the leap into electronic typesetting.",
+      imagen: "https://via.placeholder.com/400x200",
+      usuario: {
+        nombre: "Mateo",
+        apellido: "Gomez",
+        rol: "Desarrollador Fullstack",
+      },
+    },
+    {
+      titulo: "Publicación 8",
+      descripcion:
+        "It has survived not only five centuries, but also the leap into electronic typesetting.",
+      imagen: "https://via.placeholder.com/400x200",
+      usuario: {
+        nombre: "Mateo",
+        apellido: "Gomez",
+        rol: "Desarrollador Fullstack",
+      },
+    },
   ];
 
   return (
     <div className="p-5 flex">
-      {/* Contenedor de publicaciones (lado izquierdo) */}
-      <div className="w-2/4 flex flex-col gap-5 mr-8">
+      {/* Componente de subir proyecto (lado izquierdo) */}
+      <div className="w-2/4 flex justify-end card-create-projects">
+        <div className="w-full">
+          <ComponentInputCard llave={llave} />
+        </div>
+      </div>
+      {/* Contenedor de publicaciones (lado derecho) */}
+      <div className="w-2/4 flex flex-col gap-5 mt-12 mr-8 container-publicaciones">
         {publicaciones.map((publicacion, index) => (
           <div
             key={index}
@@ -82,13 +145,6 @@ export default function PublicacionesSection() {
             </div>
           </div>
         ))}
-      </div>
-
-      {/* Componente de subir proyecto (lado derecho) */}
-      <div className="w-2/4 flex justify-end">
-        <div className="w-full">
-          <ComponentInputCard llave={llave}/>
-        </div>
       </div>
     </div>
   );

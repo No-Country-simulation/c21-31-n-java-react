@@ -1,0 +1,16 @@
+@media screen and (max-width: 1230px) {
+	.card-create-projects {
+		margin-right: 9rem;
+	}
+}
+
+@media screen and (max-width: 900px) {
+	.card-create-projects {
+		display: none;
+	}
+
+	.container-publicaciones {
+		width: 100%;
+		margin-right: 0px;
+	}
+}

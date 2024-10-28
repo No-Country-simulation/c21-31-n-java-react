@@ -15,8 +15,6 @@ export default function Home() {
     { nombre: "Ezequiel", apellido: "Ramos", rol: "Desarrollador Backend" },
     { nombre: "Juanma", apellido: "Lencina", rol: "Desarrollador Frontend" },
     { nombre: "Mateo", apellido: "Gomez", rol: "Desarrollador Fullstack" },
-    { nombre: "Nahuel", apellido: "Medina", rol: "Desarrollador Frontend" },
-    { nombre: "Lucass", apellido: "Martinez", rol: "UI/UX Designer" },
   ];
 
   const [paginaActiva, setPaginaActiva] = useState("dest");
@@ -30,16 +28,18 @@ export default function Home() {
       <Nav />
       <div className="min-h-screen p-5">
         {/* Navbar */}
-        <NavInicio
-          handleNavClick={handleNavClick}
-          paginaActiva={paginaActiva}
-        ></NavInicio>
+        <div className="sticky top-16 bg-white p-4 z-10">
+          <NavInicio
+            handleNavClick={handleNavClick}
+            paginaActiva={paginaActiva}
+          ></NavInicio>
+        </div>
 
         {/* Contenedor principal con barra lateral y contenido */}
         <div className="flex flex-col lg:flex-row">
           {/* Contenido principal */}
           <div className="w-full lg:w-3/4 lg:ml-5 mb-5 lg:mb-0">
-            {paginaActiva === "dest" && <Feed amigos={amigos}/>}
+            {paginaActiva === "dest" && <Feed amigos={amigos} />}
             {paginaActiva === "proyectos" && <PublicacionesSection />}
             {paginaActiva === "destacados" && <Publicaciones />}
           </div>

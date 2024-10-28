@@ -22,7 +22,7 @@ export default function Nav() {
   }, [session, setUser, clearUser]);
 
   return (
-    <nav className="w-full h-16 flex justify-between items-center bg-gradient-to-r from-blue-600 to-indigo-600 p-4 shadow-lg text-white">
+    <nav className="fixed w-full h-16 flex justify-between items-center bg-gradient-to-r from-blue-600 to-indigo-600 p-4 shadow-lg text-white z-50">
       {/* Logo Section */}
       <div className="container-logo">
         <h1 className="flex text-2xl tracking-wide text-white gap-[5px]">
@@ -120,7 +120,7 @@ export default function Nav() {
 
       {/* Mobile Menu */}
       <div
-        className={`md:hidden absolute top-16 left-0 w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white z-10 transition-transform duration-500 ease-in-out opacity-100 ${
+        className={`md:hidden absolute top-16 left-0 w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white z-50 transition-transform duration-500 ease-in-out opacity-100 ${
           isMenuOpen ? "translate-y-0" : "-translate-y-full"
         }`}
       >

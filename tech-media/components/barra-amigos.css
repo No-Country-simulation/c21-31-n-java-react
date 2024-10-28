@@ -1,4 +1,9 @@
 @media (max-width: 1023px) {
+	.container-general {
+		position: relative;
+		top: 0px;
+	}
+
 	.container-general-cards-amigos {
 		text-align: center;
 	}
@@ -10,6 +15,18 @@
 		gap: 20px;
 	}
 
+	.card-amigos {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.renders-card {
+		min-height: 100px;
+		flex-direction: column;
+	}
+}
+
+@media (max-width: 1290px) {
 	.card-amigos {
 		display: flex;
 		flex-direction: column;

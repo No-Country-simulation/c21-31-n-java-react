@@ -101,8 +101,14 @@ export default function Feed({ amigos }) {
 
   return (
     <div className="p-5 flex flex-col lg:flex-row lg:gap-8">
+      {/* Componente de subir proyecto (lado derecho) */}
+      <div className="w-full lg:w-2/4 flex justify-end order-last lg:order-none hidden lg:block">
+        <div className="flex flex-col w-full md:items-center">
+          <ComponentInputCard llave={llave} />
+        </div>
+      </div>
       {/* Contenedor de publicaciones (lado izquierdo) */}
-      <div className="w-full lg:w-2/4 flex flex-col gap-5 mb-8 lg:mb-0">
+      <div className="w-full lg:w-2/4 flex flex-col gap-5 mt-12 mb-8 lg:mb-0">
         {publicaciones.map((publicacion, index) => (
           <div key={index}>
             <div className="bg-gray-200 p-5 rounded-md w-full">
@@ -149,13 +155,6 @@ export default function Feed({ amigos }) {
             )}
           </div>
         ))}
-      </div>
-
-      {/* Componente de subir proyecto (lado derecho) */}
-      <div className="w-full lg:w-2/4 flex justify-end order-last lg:order-none hidden lg:block">
-        <div className="flex flex-col w-full md:items-center">
-          <ComponentInputCard llave={llave} />
-        </div>
       </div>
 
       {/* Barra inferior para móviles */}

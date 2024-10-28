@@ -17,7 +17,7 @@ export default function BarraAmigos({ amigos = [] }) {
   };
 
   return (
-    <div className="flex">
+    <div className="flex fixed top-52 container-general">
       <div className="w-4/4 bg-gray-200 p-5 rounded-md container-general-cards-amigos">
         <h2 className="text-lg font-bold title-amigos">Sugerencias de amigos</h2>
         <div className="mt-4 space-y-4 container-cards-amigos">
