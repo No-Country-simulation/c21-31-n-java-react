@@ -1,5 +1,7 @@
 "use client";
 
+import ButtonEditAddProject from "@/components/editar-añadir-project-user";
+import ButtonEditAddPubli from "@/components/editar-añadir-publi-user";
 import Nav from "@/components/nav";
 import { useUserStore } from "@/store"; // Importa el store para obtener el usuario
 import Link from "next/link";
@@ -10,7 +12,7 @@ export default function Usuario() {
   return (
     <>
       <Nav></Nav>
-      <div className="flex flex-col bg-gray-100 p-8 rounded-lg shadow-md">
+      <div className="w-[97%] m-auto flex flex-col bg-gray-100 p-8 rounded-lg shadow-md mt-20">
         {/* Cabecera */}
         <div className="flex items-center flex-col">
           <div className="flex items-center">
@@ -36,9 +38,12 @@ export default function Usuario() {
             </div>
           </div>
           <div className="w-full flex items-center justify-end">
-            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-              <Link href="/usuario-edit">Editar Perfil</Link>
-            </button>
+            <Link
+              href="/Editar-datos-de-usuario"
+              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            >
+              Editar Perfil
+            </Link>
           </div>
         </div>
       </div>
@@ -67,18 +72,39 @@ export default function Usuario() {
               voluptate repellat veritatis.
             </p>
           </div>
-          <div className="flex justify-end">
-            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2">
-              <Link href="">Editar Proyecto</Link>
-            </button>
-            <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
-              Añadir Proyecto
-            </button>
-          </div>
+          <ButtonEditAddProject></ButtonEditAddProject>
         </div>
       </div>
 
       <div className="w-[95%] mx-auto bg-gray-100 p-2 rounded-lg shadow-md mt-8 mb-8">
+        <h2 className="text-[28px] font-bold mt-8">Publicaciones</h2>
+        <div className="mt-4">
+          <h2 className="text-[22px] font-bold">Título de la Publicación</h2>
+          <div className="w-full flex items-start">
+            <img
+              src="https://via.placeholder.com/400x200"
+              alt="Imagen preview Proyecto"
+              className="mb-5 border rounded-[7px]"
+            />
+          </div>
+          {/* Aquí irá la lógica para mostrar múltiples proyectos */}
+          <div className="bg-white p-4 rounded-lg shadow-sm mb-4">
+            <p className="text-gray-500">
+              Descirpción de la Publicación: Lorem ipsum, dolor sit amet
+              consectetur adipisicing elit. Ea veritatis, natus eos perspiciatis
+              facere repellendus debitis sunt tenetur. Aliquam aliquid debitis
+              possimus illo ipsam nulla ut beatae consequatur totam suscipit?
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Non
+              facere fuga quas doloribus commodi perspiciatis molestias nostrum
+              pariatur excepturi nam, ut, vitae, minima at? Repellendus eveniet
+              adipisci voluptate repellat veritatis.
+            </p>
+          </div>
+          <ButtonEditAddPubli></ButtonEditAddPubli>
+        </div>
+      </div>
+
+      {/* <div className="w-[95%] mx-auto bg-gray-100 p-2 rounded-lg shadow-md mt-8 mb-8">
         <h2 className="text-[28px] font-bold mt-8 mb-4">Sobre Mí</h2>
         <div className="bg-white p-4 rounded-lg shadow-sm mb-4">
           <p className="text-gray-500">
@@ -93,11 +119,14 @@ export default function Usuario() {
           </p>
         </div>
         <div className="flex justify-end">
-          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2">
-            Editar Proyecto
-          </button>
+          <Link
+            href="/Editar-datos-de-usuario"
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2"
+          >
+            Editar
+          </Link>
         </div>
-      </div>
+      </div> */}
     </>
   );
 }

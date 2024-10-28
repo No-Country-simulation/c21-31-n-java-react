@@ -1,8 +1,6 @@
 import Nav from "@/components/nav";
 
-import "./crear-publicacion.css";
-
-export default function CreatePublicacion() {
+export default function CrearProyecto() {
   return (
     <>
       <Nav></Nav>
@@ -10,7 +8,7 @@ export default function CreatePublicacion() {
 
       <div className="w-[65%] h-[360px] flex flex-col justify-top items-center mt-2 bg-gray-200 m-auto p-1 rounded-[10px] container-general-create-publi mt-20">
         <h1 className="w-full text-xl font-bold text-left mt-2 ml-2">
-          Agregar Publicación
+          Publicar Proyecto
         </h1>
         <div className="w-full flex justify-around items-center p-4 container-superior-publi">
           <div className="w-full flex flex-col justify-center items-center gap-1 mt-4 container-content-publi">
@@ -23,7 +21,7 @@ export default function CreatePublicacion() {
             <div className="w-full">
               <input
                 type="text"
-                placeholder="Título de la Publicación"
+                placeholder="Título del Proyecto"
                 className="w-[75%] h-[100%] p-2 border border-gray-300 rounded-md outline-none"
               />
             </div>

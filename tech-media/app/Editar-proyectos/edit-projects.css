@@ -1,0 +1,13 @@
+@media screen and (max-width: 1041px) {
+	.container-edit-project {
+		flex-direction: column;
+	}
+
+	.contianer-1-edit-project {
+		width: 100%;
+	}
+
+	.sub-container-1 {
+		width: 100%;
+	}
+}

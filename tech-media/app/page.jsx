@@ -40,8 +40,8 @@ export default function Home() {
           {/* Contenido principal */}
           <div className="w-full lg:w-3/4 mb-5">
             {paginaActiva === "dest" && <Feed amigos={amigos} />}
-            {paginaActiva === "proyectos" && <PublicacionesSection />}
-            {paginaActiva === "destacados" && <Publicaciones />}
+            {paginaActiva === "proyectos" && <PublicacionesSection amigos={amigos} />}
+            {paginaActiva === "destacados" && <Publicaciones amigos={amigos}/>}
           </div>
 
           {/* Barra lateral - Sugerencias de amigos */}

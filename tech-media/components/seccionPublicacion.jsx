@@ -1,8 +1,10 @@
+import React from "react";
 import ComponentInputCard from "./cardCreate";
-
 import "./seccion-publicacion.css";
+import BarraAmigos from "./barra-amigos";
+import Link from "next/link";
 
-export default function PublicacionesSection() {
+export default function PublicacionesSection({ amigos }) {
   // Array harcodeado de publicaciones
   const llave = true;
   const publicaciones = [
@@ -104,47 +106,69 @@ export default function PublicacionesSection() {
           <ComponentInputCard llave={llave} />
         </div>
       </div>
+
       {/* Contenedor de publicaciones (lado derecho) */}
       <div className="w-2/4 flex flex-col gap-5 mt-12 mr-8 container-publicaciones">
         {publicaciones.map((publicacion, index) => (
-          <div
-            key={index}
-            className="bg-gray-200 p-5 rounded-md shadow-md w-full"
-          >
-            {/* Información del usuario */}
-            <div className="flex justify-between items-center mb-3">
-              <div className="flex items-center">
-                <div className="bg-gray-500 w-10 h-10 rounded-full flex items-center justify-center text-white">
-                  {publicacion.usuario.nombre[0]}
+          <React.Fragment key={index}>
+            {/* Renderiza la card de publicación */}
+            <div className="bg-gray-200 p-5 rounded-md shadow-md w-full">
+              {/* Información del usuario */}
+              <div className="flex justify-between items-center mb-3">
+                <div className="flex items-center">
+                  <div className="bg-gray-500 w-10 h-10 rounded-full flex items-center justify-center text-white">
+                    {publicacion.usuario.nombre[0]}
+                  </div>
+                  <div className="ml-2">
+                    <p className="font-bold">
+                      {publicacion.usuario.nombre}{" "}
+                      {publicacion.usuario.apellido}
+                    </p>
+                    <p className="text-sm text-gray-500">
+                      {publicacion.usuario.rol}
+                    </p>
+                  </div>
                 </div>
-                <div className="ml-2">
-                  <p className="font-bold">
-                    {publicacion.usuario.nombre} {publicacion.usuario.apellido}
-                  </p>
-                  <p className="text-sm text-gray-500">
-                    {publicacion.usuario.rol}
-                  </p>
-                </div>
+                <button className="bg-blue-500 text-white px-3 py-1 rounded-md">
+                  Seguir
+                </button>
               </div>
-              <button className="bg-blue-500 text-white px-3 py-1 rounded-md">
-                Seguir
-              </button>
+
+              {/* Título y Descripción */}
+              <h2 className="text-xl font-bold">{publicacion.titulo}</h2>
+              <p className="text-gray-700 mb-3">{publicacion.descripcion}</p>
+
+              {/* Imagen */}
+              <div className="bg-gray-300 h-48 w-full rounded-md overflow-hidden">
+                <img
+                  src={publicacion.imagen}
+                  alt="Imagen del proyecto"
+                  className="object-cover w-full h-full"
+                />
+              </div>
             </div>
 
-            {/* Título y Descripción */}
-            <h2 className="text-xl font-bold">{publicacion.titulo}</h2>
-            <p className="text-gray-700 mb-3">{publicacion.descripcion}</p>
-
-            {/* Imagen */}
-            <div className="bg-gray-300 h-48 w-full rounded-md overflow-hidden">
-              <img
-                src={publicacion.imagen}
-                alt="Imagen del proyecto"
-                className="object-cover w-full h-full"
-              />
-            </div>
-          </div>
+            {/* Inserta el componente `ComponentInputCard` cada 4 publicaciones */}
+            {(index + 1) % 4 === 0 && (
+              <div className="mt-5 mb-10 barra-amigos-container">
+                <BarraAmigos amigos={amigos} />
+              </div>
+            )}
+          </React.Fragment>
         ))}
+      </div>
+      {/* Barra inferior para móviles */}
+      <div className="fixed bottom-0 left-0 w-full bg-blue-500 p-4 flex justify-center lg:hidden">
+        <Link href="/Crear-proyecto">
+          <button
+            onClick={() => {
+              // Aquí manejas la redirección
+            }}
+            className="bg-white rounded-full w-12 h-12 flex items-center justify-center text-2xl text-blue-500"
+          >
+            +
+          </button>
+        </Link>
       </div>
     </div>
   );
