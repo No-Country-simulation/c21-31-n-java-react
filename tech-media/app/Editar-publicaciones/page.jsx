@@ -1,40 +1,66 @@
 import Nav from "@/components/nav";
+import Link from "next/link";
+
+import "./edit-publicaciones.css";
+
+const publicaciones = [
+  {
+    descripcion: "Descripción de la publicación 1",
+    imagen: "https://via.placeholder.com/400x200?",
+  },
+  {
+    descripcion: "Descripción de la publicación 2",
+    imagen: "https://via.placeholder.com/400x200?",
+  },
+  {
+    descripcion: "Descripción de la publicación 3",
+    imagen: "https://via.placeholder.com/400x200?",
+  },
+];
 
 export default function EditPublicaciones() {
   return (
     <>
-      <Nav></Nav>
+      <Nav />
       <div className="mt-20 p-4">
-        <div className="flex w-[75%] m-auto bg-gray-100 p-2 rounded-lg shadow-md container-edit-project">
-          <div className="w-[75%] contianer-1-edit-project">
-            <h1 className="mt-4 mb-4 text-xl font-bold">Editar Publicaciones</h1>
-            <div className="flex flex-col w-[50%] gap-4 mb-4 sub-container-1">
-              <label htmlFor="">Titulo actual de la Publicación </label>
-              <input
-                type="text"
-                placeholder="&nbsp;Título de la Publicación"
-                className="w-[75%] h-[35px] rounded-lg outline-none border border-zinc-300 inputs"
-              />
-
-              <textarea
-                type="text"
-                placeholder="&nbsp;Descripción de la Publicación"
-                className="w-[75%] h-[85px] rounded-lg outline-none border border-zinc-300 resize-none inputs"
-              />
+        <div className="flex flex-col w-[75%] m-auto bg-gray-100 p-4 rounded-lg shadow-md container-edit-project h-[500px] overflow-y-scroll gap-6">
+          {publicaciones.map((publicacion, index) => (
+            <div
+              key={index}
+              className="flex justify-between p-4 bg-white rounded-lg shadow container-edit-publi"
+            >
+              <div className="w-[75%] container-edit-publi-1">
+                <h1 className="text-xl font-bold mb-4">
+                  Editar Publicación {index + 1}
+                </h1>
+                <label className="mb-2 font-bold block">
+                  Cambiar descripción de la publicación
+                </label>
+                <textarea
+                  placeholder={publicacion.descripcion}
+                  className="w-[75%] h-[100px] rounded-lg outline-none border border-zinc-300 resize-none mb-4 textarea-edit"
+                />
+              </div>
+              <div className="flex flex-col items-center">
+                <img
+                  src={publicacion.imagen}
+                  alt=""
+                  className="rounded-lg mb-4"
+                />
+                <div className="flex flex-wrap justify-center items-center gap-2">
+                  <Link
+                    href="/usuario"
+                    className="text-center bg-red-500 hover:bg-red-800 text-white font-bold py-2 px-4 rounded duration-300 buttons"
+                  >
+                    Cancelar y Volver
+                  </Link>
+                  <button className="text-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded duration-300 buttons">
+                    Confirmar edición
+                  </button>
+                </div>
+              </div>
             </div>
-          </div>
-          <div className="flex flex-col relative">
-            <img
-              src="https://via.placeholder.com/400x200"
-              alt="Imagen preview Proyecto"
-              className="rounded-lg"
-            />
-            <div className="w-full flex justify-end mt-4">
-              <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded duration-300">
-                Confirmar edición
-              </button>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </>
