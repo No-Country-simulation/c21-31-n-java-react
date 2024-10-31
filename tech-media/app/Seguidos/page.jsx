@@ -90,7 +90,7 @@ export default function Seguidos() {
               strokeLinejoin="round"
             />
           </svg>
-          <svg
+          {/* <svg
             width="35px"
             height="100%"
             viewBox="0 0 24 24"
@@ -104,7 +104,7 @@ export default function Seguidos() {
               strokeLinecap="round"
               strokeLinejoin="round"
             />
-          </svg>
+          </svg> */}
         </div>
       </div>
       <hr />
