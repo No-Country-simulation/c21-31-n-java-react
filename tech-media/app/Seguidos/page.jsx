@@ -99,11 +99,13 @@ export default function Seguidos() {
 
       <main className="flex flex-col md:flex-row justify-center w-[80%] m-auto main-contactos">
         <div className="w-full md:w-[50%] bg-gray-200 m-4 p-4 rounded-lg">
-          <h1 className="text-xl font-bold text-lef mb-6 titles">Usuarios Seguidos</h1>
+          <h1 className="text-xl font-bold text-lef mb-6 titles">
+            Usuarios Seguidos
+          </h1>
           {users.map((user, index) => (
             <div
               key={index}
-              className="flex items-center justify-between bg-gray-100 p-4 mb-4 rounded-lg shadow-md container-user-chat"
+              className="flex relative items-center justify-between bg-gray-100 p-4 mb-4 rounded-lg shadow-md container-user-chat"
             >
               <div className="flex items-center container-datos-user">
                 <img src={user.image} className="w-16 h-16 rounded-full mr-4" />
@@ -121,6 +123,22 @@ export default function Seguidos() {
                   </h4>
                 </div>
               </div>
+              <svg
+                width="35px"
+                height="100%"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className="absolute top-[-25px] right-0 icon-delete"
+              >
+                <path
+                  d="M18 6L6 18M6 6L18 18"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
               <div>
                 {/* <Link href="">
                   <svg
