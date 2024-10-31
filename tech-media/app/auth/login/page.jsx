@@ -2,21 +2,37 @@
 import { signIn, useSession } from "next-auth/react";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import axios from "axios";
 import "./loguin.css";
+import { useUserStore } from "../../../store"; // Cambia esta ruta a la ubicación de tu store
 
 export default function LoginPage() {
-  const [name, setName] = useState("");
+  const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isRegistering, setIsRegistering] = useState(false);
   const { data: session, status } = useSession();
-  console.log(session?.user, status);
+  const setUser = useUserStore((state) => state.setUser);
   const router = useRouter();
 
   const handleRegister = async (e) => {
     e.preventDefault();
-    console.log("Registering with:", { name, email, password });
-    // Lógica para registrar al usuario aquí
+    try {
+      const response = await axios.post("http://167.0.167.240:8082/auth/register", {
+        username,
+        email,
+        password,
+      });
+
+      if (response.status === 200) {
+        setUser(response.data); // Guarda los datos del usuario en el estado global
+        router.push("/dashboard"); // Redirige al dashboard u otra página
+      } else {
+        console.error("Error en el registro");
+      }
+    } catch (error) {
+      console.error("Error en la solicitud de registro:", error);
+    }
   };
 
   const handleLogin = async (e) => {
@@ -28,18 +44,18 @@ export default function LoginPage() {
     });
 
     if (res.ok) {
-      router.push("/dashboard"); // O redirigir a otra página
+      setUser({ username, email }); // Guarda los datos en el estado global
+      router.push("/dashboard"); // Redirige a otra página
     } else {
       console.log("Error en el login");
     }
   };
 
   const handleGoogleLogin = async () => {
-    await signIn("google", { callbackUrl: "/" }); // Redirigir a la página principal "/"
+    await signIn("google", { callbackUrl: "/" });
   };
 
   const handleGithubLogin = async () => {
-    console.log("logueo git");
     await signIn("github", { callbackUrl: "/" });
   };
 
@@ -53,17 +69,17 @@ export default function LoginPage() {
           {isRegistering && (
             <div className="mb-4">
               <label
-                htmlFor="name"
+                htmlFor="username"
                 className="block text-sm font-medium text-gray-700"
               >
-                Nombre
+                Nombre de Usuario
               </label>
               <input
-                id="name"
+                id="username"
                 type="text"
-                value={name}
-                placeholder="ingresa tu nombre"
-                onChange={(e) => setName(e.target.value)}
+                value={username}
+                placeholder="Ingresa tu nombre de usuario"
+                onChange={(e) => setUsername(e.target.value)}
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm"
                 required
               />
@@ -80,7 +96,7 @@ export default function LoginPage() {
               id="email"
               type="email"
               value={email}
-              placeholder="ingresa tu Email"
+              placeholder="Ingresa tu Email"
               onChange={(e) => setEmail(e.target.value)}
               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm"
               required
@@ -97,7 +113,7 @@ export default function LoginPage() {
               id="password"
               type="password"
               value={password}
-              placeholder="ingresa tu contraseña"
+              placeholder="Ingresa tu contraseña"
               onChange={(e) => setPassword(e.target.value)}
               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm"
               required
@@ -131,11 +147,11 @@ export default function LoginPage() {
         </button>
         <button onClick={handleGithubLogin} className="git-login-button">
           <img
-            src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" // Logo de GitHub
+            src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg"
             alt="GitHub logo"
             className="github-logo"
           />
-          Iniciar sesion con GitHub
+          Iniciar sesión con GitHub
         </button>
       </div>
     </div>

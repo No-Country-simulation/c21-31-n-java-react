@@ -11,6 +11,8 @@ export default function ComponentInputCard({ llave }) {
   // Asegúrate de que addProyecto esté obteniéndose correctamente de useUserStore
   const addProyecto = useUserStore((state) => state.addPublicacion);
   const addPublicacion = useUserStore((state) => state.addPublicacion1);
+  const addPublicacionUser = useUserStore((state) => state.addPublicacionUser);
+  const addProyectoUser = useUserStore((state) => state.addProyectosUser);
 
   const handleFileChange = (event) => {
     if (event.target.files && event.target.files[0]) {
@@ -33,7 +35,8 @@ export default function ComponentInputCard({ llave }) {
 
       // Llama a addProyecto para agregar el proyecto
       addProyecto(nuevoProyecto);
-
+      addProyectoUser(nuevoProyecto)
+      
       // Limpia los campos
       setProjectName("");
       setProjectDescription("");
@@ -45,7 +48,7 @@ export default function ComponentInputCard({ llave }) {
 
   const handleUploadPublicacion = () => {
     if (addPublicacion) {
-      const nuevoPublicacion = {
+      const nuevoPublicacion1 = {
         titulo: projectName,
         descripcion: projectDescription,
         imagen: selectedFile ? URL.createObjectURL(selectedFile) : "",
@@ -57,7 +60,8 @@ export default function ComponentInputCard({ llave }) {
       };
 
       // Llama a addProyecto para agregar el proyecto
-      addProyecto(nuevoPublicacion);
+      addPublicacion(nuevoPublicacion1);
+      addPublicacionUser(nuevoPublicacion1);
 
       // Limpia los campos
       setProjectName("");
@@ -109,18 +113,19 @@ export default function ComponentInputCard({ llave }) {
           className="w-full p-2 border border-gray-300 rounded-md"
         />
         {llave ? (
+              <button
+              onClick={handleUploadPublicacion}
+              className="w-full p-3 bg-blue-500 text-white font-bold rounded-md"
+            >
+              Subir Proyecto
+            </button>
+         
+        ) : (
           <button
             onClick={handleUpload}
             className="w-full p-3 bg-blue-500 text-white font-bold rounded-md"
           >
-            {llave ? "Subir Proyecto" : "Subir Publicación"}
-          </button>
-        ) : (
-          <button
-            onClick={handleUploadPublicacion}
-            className="w-full p-3 bg-blue-500 text-white font-bold rounded-md"
-          >
-            Subir Publicación
+            Subir Publicacion
           </button>
         )}
       </div>

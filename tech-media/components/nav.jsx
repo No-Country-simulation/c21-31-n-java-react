@@ -46,12 +46,12 @@ export default function Nav() {
         >
           Inicio
         </Link>
-        <Link
+        {/* <Link
           href="/Seguidos"
           className="hover:text-yellow-400 transition duration-300 ease-in-out"
         >
           Seguidos
-        </Link>
+        </Link> */}
         <Link
           href="/comunidades"
           className="hover:text-yellow-400 transition duration-300 ease-in-out"
@@ -132,12 +132,12 @@ export default function Nav() {
             >
               Inicio
             </Link>
-            <Link
+            {/* <Link
               href="/Contactos"
               className="hover:text-yellow-400 transition duration-300 ease-in-out py-2"
             >
               Seguidos
-            </Link>
+            </Link> */}
             <Link
               href="/comunidades"
               className="hover:text-yellow-400 transition duration-300 ease-in-out py-2"

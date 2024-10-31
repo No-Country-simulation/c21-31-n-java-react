@@ -3,11 +3,13 @@ import ComponentInputCard from "./cardCreate";
 import "./seccion-publicacion.css";
 import BarraAmigos from "./barra-amigos";
 import Link from "next/link";
+import { useUserStore } from "@/store";
 
 export default function PublicacionesSection({ amigos }) {
   // Array harcodeado de publicaciones
   const llave = true;
-  const publicaciones = [
+  const publicaciones = useUserStore((state) => state.publicacion);
+ /*  const publicaciones = [
     {
       titulo: "Proyecto 1",
       descripcion:
@@ -97,7 +99,7 @@ export default function PublicacionesSection({ amigos }) {
       },
     },
   ];
-
+ */
   return (
     <div className="p-5 flex">
       {/* Componente de subir proyecto (lado izquierdo) */}

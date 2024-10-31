@@ -2,6 +2,11 @@ import { create } from "zustand";
 
 export const useUserStore = create((set) => ({
   user: null, // Estado inicial
+  userPublicaciones: [
+
+  ],
+  userProyectos: [],
+
   proyectos: [
     {
       titulo: "Publicación 1",
@@ -104,17 +109,24 @@ export const useUserStore = create((set) => ({
         rol: "Desarrollador Frontend",
       },
     },
-
   ],
   setUser: (userData) => set({ user: userData }), // Función para actualizar el estado del usuario
   clearUser: () => set({ user: null }), // Función para limpiar el estado del usuario (logout)
   addPublicacion: (publicacion) =>
     set((state) => ({
-      proyectos: [...state.proyectos, publicacion],
+      proyectos: [publicacion, ...state.proyectos],
     })),
 
-    addPublicacion1: (publicacion) =>
+  addPublicacion1: (publicacion) =>
+    set((state) => ({
+      publicacion: [publicacion, ...state.publicacion],
+    })),
+  addPublicacionUser: (publicacion) =>
+    set((state) => ({
+      userPublicaciones : [ ...state.userPublicaciones, publicacion],
+    })),
+    addProyectosUser: (publicacion) =>
       set((state) => ({
-        publicacion: [...state.publicacion, publicacion],
+        userProyectos : [ ...state.userProyectos, publicacion],
       })),
 }));

@@ -8,9 +8,12 @@ import PublicacionesSection from "@/components/seccionPublicacion";
 import Feed from "@/components/fedd";
 
 import "./home.css";
+import { useUserStore } from "@/store";
 
 // pages/index.js
 export default function Home() {
+  const user = useUserStore((state) => state.user);
+  console.log(user)
   const amigos = [
     { nombre: "Ezequiel", apellido: "Ramos", rol: "Desarrollador Backend" },
     { nombre: "Juanma", apellido: "Lencina", rol: "Desarrollador Frontend" },
