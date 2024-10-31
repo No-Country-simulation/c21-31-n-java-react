@@ -7,83 +7,62 @@ export const useUserStore = create((set) => ({
   contactos: [],
   proyectos: [
     {
-      titulo: "Publicación 1",
+      titulo: "Plataforma de E-commerce con React y Node.js",
       descripcion:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+        "Desarrollo de una plataforma de e-commerce completa, con carrito de compras, gestión de usuarios y procesamiento de pagos.",
       imagen: "https://via.placeholder.com/400x200",
       usuario: {
-        nombre: "Ezequiel",
-        apellido: "Ramos",
-        rol: "Desarrollador Backend",
+        nombre: "María",
+        apellido: "González",
+        rol: "Fullstack Developer",
       },
     },
     {
-      titulo: "Publicación 2",
+      titulo: "Aplicación de Gestión de Tareas con React Native",
       descripcion:
-        "Lorem Ipsum has been the industry's standard dummy text ever since.",
+        "Aplicación móvil para organizar y gestionar tareas, con integración de autenticación y notificaciones push.",
       imagen: "https://via.placeholder.com/400x200",
       usuario: {
-        nombre: "Juan",
-        apellido: "Lencina",
-        rol: "Desarrollador Frontend",
+        nombre: "Lucas",
+        apellido: "Pérez",
+        rol: "Mobile Developer",
       },
     },
     {
-      titulo: "Publicación 3",
+      titulo: "Sistema de Monitoreo de Servidores en Tiempo Real",
       descripcion:
-        "It has survived not only five centuries, but also the leap into electronic typesetting.",
+        "Proyecto de monitoreo de servidores con alertas en tiempo real y dashboards interactivos usando Grafana y Prometheus.",
       imagen: "https://via.placeholder.com/400x200",
       usuario: {
-        nombre: "Mateo",
-        apellido: "Gomez",
-        rol: "Desarrollador Fullstack",
+        nombre: "Silvia",
+        apellido: "Torres",
+        rol: "DevOps Engineer",
       },
     },
     {
-      titulo: "Publicación 4",
+      titulo: "Aplicación de Chat en Tiempo Real con Socket.io",
       descripcion:
-        "It has survived not only five centuries, but also the leap into electronic typesetting.",
+        "Desarrollo de una aplicación de mensajería con soporte de chats en tiempo real, grupos y notificaciones.",
       imagen: "https://via.placeholder.com/400x200",
       usuario: {
-        nombre: "Mateo",
-        apellido: "Gomez",
-        rol: "Desarrollador Fullstack",
+        nombre: "Fernando",
+        apellido: "Sosa",
+        rol: "Backend Developer",
       },
     },
     {
-      titulo: "Publicación 5",
+      titulo: "Portal de Noticias con Headless CMS y Next.js",
       descripcion:
-        "It has survived not only five centuries, but also the leap into electronic typesetting.",
+        "Creación de un portal de noticias utilizando un CMS sin cabeza, con soporte de contenido dinámico y SEO optimizado.",
       imagen: "https://via.placeholder.com/400x200",
       usuario: {
-        nombre: "Mateo",
-        apellido: "Gomez",
-        rol: "Desarrollador Fullstack",
-      },
-    },
-    {
-      titulo: "Publicación 6",
-      descripcion:
-        "It has survived not only five centuries, but also the leap into electronic typesetting.",
-      imagen: "https://via.placeholder.com/400x200",
-      usuario: {
-        nombre: "Mateo",
-        apellido: "Gomez",
-        rol: "Desarrollador Fullstack",
-      },
-    },
-    {
-      titulo: "Publicación 7",
-      descripcion:
-        "It has survived not only five centuries, but also the leap into electronic typesetting.",
-      imagen: "https://via.placeholder.com/400x200",
-      usuario: {
-        nombre: "Mateo",
-        apellido: "Gomez",
-        rol: "Desarrollador Fullstack",
+        nombre: "Daniela",
+        apellido: "Ramírez",
+        rol: "Frontend Developer",
       },
     },
   ],
+  
   publicacion: [
     {
       titulo: "Introducción a Docker para Desarrolladores",
