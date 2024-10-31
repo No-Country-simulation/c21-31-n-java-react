@@ -132,12 +132,12 @@ export default function Nav() {
             >
               Inicio
             </Link>
-            {/* <Link
-              href="/Contactos"
+            <Link
+              href="/Seguidos"
               className="hover:text-yellow-400 transition duration-300 ease-in-out py-2"
             >
               Seguidos
-            </Link> */}
+            </Link>
             <Link
               href="/comunidades"
               className="hover:text-yellow-400 transition duration-300 ease-in-out py-2"
