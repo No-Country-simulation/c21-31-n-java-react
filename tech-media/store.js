@@ -186,4 +186,11 @@ export const useUserStore = create((set) => ({
     set((state) => ({
       contactos: [...state.contactos, contacto],
     })),
+
+    removeContacto: (nombre) =>
+      set((state) => ({
+        contactos: state.contactos.filter(
+          (contacto) => contacto.nombre !== nombre
+        ),
+      })),
 }));
