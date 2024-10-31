@@ -86,83 +86,62 @@ export const useUserStore = create((set) => ({
   ],
   publicacion: [
     {
-      titulo: "Publicación 1",
+      titulo: "Introducción a Docker para Desarrolladores",
       descripcion:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-      imagen: "https://via.placeholder.com/400x200",
+        "Descubre cómo Docker puede mejorar el proceso de desarrollo, simplificando la gestión de entornos y el despliegue de aplicaciones.",
+      imagen: "https://docs.docker.com/desktop/images/build-ui-active-builds.webp",
       usuario: {
-        nombre: "Ezequiel",
-        apellido: "Ramos",
-        rol: "Desarrollador Backend",
+        nombre: "Laura",
+        apellido: "Fernández",
+        rol: "DevOps Engineer",
       },
     },
     {
-      titulo: "Publicación 2",
+      titulo: "Novedades de React 18",
       descripcion:
-        "Lorem Ipsum has been the industry's standard dummy text ever since.",
-      imagen: "https://via.placeholder.com/400x200",
+        "Explora las nuevas características de React 18 y cómo estas mejoras pueden optimizar el rendimiento de tus aplicaciones.",
+      imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqrO1mVlDXnBTjegbX9RG06faHVdz6Ns0QYg&s",
       usuario: {
-        nombre: "Juan",
-        apellido: "Lencina",
-        rol: "Desarrollador Frontend",
+        nombre: "Carlos",
+        apellido: "Mendoza",
+        rol: "Frontend Developer",
       },
     },
     {
-      titulo: "Publicación 3",
+      titulo: "Patrones de Diseño en Arquitectura de Microservicios",
       descripcion:
-        "It has survived not only five centuries, but also the leap into electronic typesetting.",
-      imagen: "https://via.placeholder.com/400x200",
+        "Aprende sobre los patrones de diseño más comunes para implementar una arquitectura de microservicios escalable y mantenible.",
+      imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4PBhCOpEq6Pk5hExne52JxTUmron-yLWs1A&s",
       usuario: {
-        nombre: "Mateo",
-        apellido: "Gomez",
-        rol: "Desarrollador Fullstack",
+        nombre: "Ana",
+        apellido: "Rodríguez",
+        rol: "Software Architect",
       },
     },
     {
-      titulo: "Publicación 4",
+      titulo: "Mejores Prácticas de Seguridad en Node.js",
       descripcion:
-        "It has survived not only five centuries, but also the leap into electronic typesetting.",
-      imagen: "https://via.placeholder.com/400x200",
+        "Conoce las mejores prácticas para asegurar tus aplicaciones Node.js y protegerlas de vulnerabilidades comunes.",
+      imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSy-RD9r6ORHfaeOWe6suY1ec28Z1DQMsZzA&s",
       usuario: {
-        nombre: "Mateo",
-        apellido: "Gomez",
-        rol: "Desarrollador Fullstack",
+        nombre: "Pedro",
+        apellido: "Martínez",
+        rol: "Backend Developer",
       },
     },
     {
-      titulo: "Publicación 5",
+      titulo: "Optimización de Consultas en Bases de Datos SQL",
       descripcion:
-        "It has survived not only five centuries, but also the leap into electronic typesetting.",
-      imagen: "https://via.placeholder.com/400x200",
+        "Tips y estrategias para mejorar el rendimiento de tus consultas SQL y optimizar el manejo de bases de datos en aplicaciones de gran escala.",
+      imagen: "https://res.cloudinary.com/cristotodev/image/upload/v1716969914/cristotodev/blog/sql_cfui24.webp",
       usuario: {
-        nombre: "Mateo",
-        apellido: "Gomez",
-        rol: "Desarrollador Fullstack",
-      },
-    },
-    {
-      titulo: "Publicación 6",
-      descripcion:
-        "It has survived not only five centuries, but also the leap into electronic typesetting.",
-      imagen: "https://via.placeholder.com/400x200",
-      usuario: {
-        nombre: "Mateo",
-        apellido: "Gomez",
-        rol: "Desarrollador Fullstack",
-      },
-    },
-    {
-      titulo: "Publicación 7",
-      descripcion:
-        "It has survived not only five centuries, but also the leap into electronic typesetting.",
-      imagen: "https://via.placeholder.com/400x200",
-      usuario: {
-        nombre: "Mateo",
-        apellido: "Gomez",
-        rol: "Desarrollador Fullstack",
+        nombre: "Sara",
+        apellido: "López",
+        rol: "Database Administrator",
       },
     },
   ],
+  
   setUser: (userData) => set({ user: userData }), // Función para actualizar el estado del usuario
   clearUser: () => set({ user: null }), // Función para limpiar el estado del usuario (logout)
   addPublicacion: (publicacion) =>

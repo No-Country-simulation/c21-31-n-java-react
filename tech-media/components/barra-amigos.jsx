@@ -1,6 +1,5 @@
-"use client"
+"use client";
 import { useState } from "react";
-
 import "./barra-amigos.css";
 import { useUserStore } from "@/store";
 
@@ -9,14 +8,24 @@ export default function BarraAmigos({ amigos = [] }) {
   const [siguiendo, setSiguiendo] = useState(
     amigos.slice(0, 4).map(() => false) // Inicializamos el estado con "false" para cada amigo
   );
+
   const setContactos = useUserStore((state) => state.setContactos);
+  const removeContacto = useUserStore((state) => state.removeContacto);
+  const users = useUserStore((state) => state.contactos);
+
   // Función para manejar el clic del botón
   const manejarSeguir = (index, amigo) => {
     // Alterna el estado de seguir/dejar de seguir
     setSiguiendo((prevState) =>
       prevState.map((estado, i) => (i === index ? !estado : estado))
     );
-    if (!siguiendo[index]) {
+
+    // Verificar si el usuario ya está en la lista de contactos
+    const isFollowing = users.some((user) => user.nombre === amigo.nombre);
+
+    if (isFollowing) {
+      removeContacto(amigo);
+    } else {
       setContactos(amigo);
     }
   };
