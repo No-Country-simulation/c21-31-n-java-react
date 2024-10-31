@@ -122,16 +122,18 @@ export default function Feed({ amigos }) {
                   <div className="ml-2">
                     <p className="font-bold">
                       {publicacion.usuario.nombre}{" "}
-                      {publicacion.usuario.apellido}
+                      {/* {publicacion.usuario.apellido} */}
                     </p>
                     <p className="text-sm text-gray-500">
                       {publicacion.usuario.rol}
                     </p>
                   </div>
                 </div>
-                <button className="bg-blue-500 text-white px-3 py-1 rounded-md mb-3">
-                  Seguir
-                </button>
+                {publicacion.usuario.nombre != "EzeProgramacion" ? (
+                  <button className="bg-blue-500 text-white px-3 py-1 rounded-md mb-3">
+                    Seguir
+                  </button>
+                ) : null}
               </div>
 
               {/* Título y Descripción */}

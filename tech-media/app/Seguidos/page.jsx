@@ -1,47 +1,67 @@
+"use client";
 import Nav from "@/components/nav";
 import Link from "next/link";
 
 import "./contactos.css";
+import { useUserStore } from "@/store";
+import { useState } from "react";
 
 export default function Seguidos() {
-  const users = [
+  const users = useUserStore((state) => state.contactos);
+  const sugerencias = [
     {
-      name: "Melina Sanchez",
+      nombre: "Franco Colapinto",
       profession: "Desarrollo Web",
       skills: "HTML | CSS | JS | JAVA | POSTMAN",
-      image: "https://via.placeholder.com/150",
+      image: "https://lombreach.es/wp-content/uploads/usuario-sin-foto.png",
     },
     {
-      name: "Melina Sanchez",
+      nombre: "Juanma Lencina",
       profession: "Desarrollo Web",
       skills: "HTML | CSS | JS | JAVA | POSTMAN",
-      image: "https://via.placeholder.com/150",
+      image: "https://lombreach.es/wp-content/uploads/usuario-sin-foto.png",
     },
     {
-      name: "Melina Sanchez",
+      nombre: "Giovany Salcedo",
       profession: "Desarrollo Web",
       skills: "HTML | CSS | JS | JAVA | POSTMAN",
-      image: "https://via.placeholder.com/150",
+      image: "https://lombreach.es/wp-content/uploads/usuario-sin-foto.png",
     },
     {
-      name: "Melina Sanchez",
+      nombre: "Mateo Rueda Gomez",
       profession: "Desarrollo Web",
       skills: "HTML | CSS | JS | JAVA | POSTMAN",
-      image: "https://via.placeholder.com/150",
+      image: "https://lombreach.es/wp-content/uploads/usuario-sin-foto.png",
     },
     {
-      name: "Melina Sanchez",
+      nombre: "Sebastian Huertas",
       profession: "Desarrollo Web",
       skills: "HTML | CSS | JS | JAVA | POSTMAN",
-      image: "https://via.placeholder.com/150",
+      image: "https://lombreach.es/wp-content/uploads/usuario-sin-foto.png",
     },
     {
-      name: "Melina Sanchez",
+      nombre: "Lionel Messi",
       profession: "Desarrollo Web",
       skills: "HTML | CSS | JS | JAVA | POSTMAN",
-      image: "https://via.placeholder.com/150",
+      image: "https://lombreach.es/wp-content/uploads/usuario-sin-foto.png",
     },
   ];
+
+  const [siguiendo, setSiguiendo] = useState(
+    sugerencias.slice(0, 4).map(() => false) // Inicializamos el estado con "false" para cada amigo
+  );
+
+  const setContactos = useUserStore((state) => state.setContactos);
+  // Función para manejar el clic del botón
+  const manejarSeguir = (index, amigo) => {
+    // Alterna el estado de seguir/dejar de seguir
+    setSiguiendo((prevState) =>
+      prevState.map((estado, i) => (i === index ? !estado : estado))
+    );
+    if (!siguiendo[index]) {
+      setContactos(amigo);
+    }
+  };
 
   return (
     <>
@@ -91,7 +111,7 @@ export default function Seguidos() {
 
       <main className="flex flex-col md:flex-row justify-center w-[80%] m-auto main-contactos">
         <div className="w-full md:w-[50%] bg-gray-200 m-4 p-4 rounded-lg">
-          <h1 className="text-xl font-bold text-lef mb-6">Mis contactos</h1>
+          <h1 className="text-xl font-bold text-lef mb-6">Usuarios Seguidos</h1>
           {users.map((user, index) => (
             <div
               key={index}
@@ -100,20 +120,24 @@ export default function Seguidos() {
               <div className="flex items-center container-datos-user">
                 <img
                   src={user.image}
-                  className="w-16 h-16 rounded-full border border-gray-300 mr-4"
+                  className="w-16 h-16 rounded-full mr-4"
                 />
-                <div>
-                  <h3 className="text-lg font-semibold text-gray-800">
-                    {user.name}
-                  </h3>
-                  <p className="text-sm font-semibold text-gray-600">
-                    {user.profession}
-                  </p>
-                  <p className="text-xs text-gray-500">{user.skills}</p>
+                <div className="flex flex-col gap-1">
+                  <div className="flex gap-1">
+                    <h3 className="text-xl font-semibold text-gray-800">
+                      {user.nombre}
+                    </h3>
+                    <h3 className="text-xl font-semibold text-gray-800">
+                      {user.apellido}
+                    </h3>
+                  </div>
+                  <h4 className="text-sm font-semibold text-gray-800">
+                    {user.rol} {user.profession}
+                  </h4>
                 </div>
               </div>
               <div>
-                <Link href="">
+                {/* <Link href="">
                   <svg
                     width="30px"
                     height="100%"
@@ -129,7 +153,7 @@ export default function Seguidos() {
                       strokeLinejoin="round"
                     />
                   </svg>
-                </Link>
+                </Link> */}
               </div>
             </div>
           ))}
@@ -139,27 +163,33 @@ export default function Seguidos() {
             Más sugerencias para ti
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {users.map((user, index) => (
+            {sugerencias.map((user, index) => (
               <div
                 key={index}
                 className="bg-white rounded-lg shadow-md p-4 flex flex-col items-center"
               >
                 <img
                   src={user.image}
-                  alt={user.name}
-                  className="w-20 h-20 rounded-full border border-gray-300 mb-4"
+                  className="w-20 h-20 rounded-full mb-4"
                 />
                 <h3 className="text-lg font-semibold text-gray-800">
-                  {user.name}
+                  {user.nombre}
                 </h3>
-                <p className="text-sm text-gray-500">{user.skills}</p>
-                <button className="mt-4 bg-blue-500 text-white py-1 px-3 rounded hover:bg-blue-600">
-                  Seguir
+                <h4 className="text-sm font-semibold text-gray-800">
+                  {user.profession}
+                </h4>
+                <button
+                  className={`${
+                    siguiendo[index] ? "bg-red-500" : "bg-blue-500"
+                  } text-white p-4 py-1 rounded-md m-2`}
+                  onClick={() => manejarSeguir(index, user)}
+                >
+                  {siguiendo[index] ? "Dejar de Seguir" : "Seguir"}
                 </button>
               </div>
             ))}
           </div>
-          <div className="mt-6 flex flex-wrap justify-center gap-2">
+          {/* <div className="mt-6 flex flex-wrap justify-center gap-2">
             <span className="bg-gray-300 text-gray-700 px-3 py-1 rounded-full text-sm">
               DISEÑO WEB
             </span>
@@ -172,7 +202,7 @@ export default function Seguidos() {
             <span className="bg-gray-300 text-gray-700 px-3 py-1 rounded-full text-sm">
               BACKEND
             </span>
-          </div>
+          </div> */}
         </div>
       </main>
     </>

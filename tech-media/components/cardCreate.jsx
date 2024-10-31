@@ -13,6 +13,7 @@ export default function ComponentInputCard({ llave }) {
   const addPublicacion = useUserStore((state) => state.addPublicacion1);
   const addPublicacionUser = useUserStore((state) => state.addPublicacionUser);
   const addProyectoUser = useUserStore((state) => state.addProyectosUser);
+  const user = useUserStore((state) => state.user);
 
   const handleFileChange = (event) => {
     if (event.target.files && event.target.files[0]) {
@@ -27,8 +28,8 @@ export default function ComponentInputCard({ llave }) {
         descripcion: projectDescription,
         imagen: selectedFile ? URL.createObjectURL(selectedFile) : "",
         usuario: {
-          nombre: "Nuevo",
-          apellido: "Usuario",
+          nombre: user.name,
+          apellido: user.email,
           rol: "Desarrollador",
         },
       };

@@ -2,11 +2,9 @@ import { create } from "zustand";
 
 export const useUserStore = create((set) => ({
   user: null, // Estado inicial
-  userPublicaciones: [
-
-  ],
+  userPublicaciones: [],
   userProyectos: [],
-
+  contactos: [],
   proyectos: [
     {
       titulo: "Publicación 1",
@@ -109,6 +107,61 @@ export const useUserStore = create((set) => ({
         rol: "Desarrollador Frontend",
       },
     },
+    {
+      titulo: "Publicación 3",
+      descripcion:
+        "It has survived not only five centuries, but also the leap into electronic typesetting.",
+      imagen: "https://via.placeholder.com/400x200",
+      usuario: {
+        nombre: "Mateo",
+        apellido: "Gomez",
+        rol: "Desarrollador Fullstack",
+      },
+    },
+    {
+      titulo: "Publicación 4",
+      descripcion:
+        "It has survived not only five centuries, but also the leap into electronic typesetting.",
+      imagen: "https://via.placeholder.com/400x200",
+      usuario: {
+        nombre: "Mateo",
+        apellido: "Gomez",
+        rol: "Desarrollador Fullstack",
+      },
+    },
+    {
+      titulo: "Publicación 5",
+      descripcion:
+        "It has survived not only five centuries, but also the leap into electronic typesetting.",
+      imagen: "https://via.placeholder.com/400x200",
+      usuario: {
+        nombre: "Mateo",
+        apellido: "Gomez",
+        rol: "Desarrollador Fullstack",
+      },
+    },
+    {
+      titulo: "Publicación 6",
+      descripcion:
+        "It has survived not only five centuries, but also the leap into electronic typesetting.",
+      imagen: "https://via.placeholder.com/400x200",
+      usuario: {
+        nombre: "Mateo",
+        apellido: "Gomez",
+        rol: "Desarrollador Fullstack",
+      },
+    },
+    {
+      titulo: "Publicación 7",
+      descripcion:
+        "It has survived not only five centuries, but also the leap into electronic typesetting.",
+      imagen: "https://via.placeholder.com/400x200",
+      usuario: {
+        nombre: "Mateo",
+        apellido: "Gomez",
+        rol: "Desarrollador Fullstack",
+      },
+    },
   ],
   setUser: (userData) => set({ user: userData }), // Función para actualizar el estado del usuario
   clearUser: () => set({ user: null }), // Función para limpiar el estado del usuario (logout)
@@ -123,10 +176,14 @@ export const useUserStore = create((set) => ({
     })),
   addPublicacionUser: (publicacion) =>
     set((state) => ({
-      userPublicaciones : [ ...state.userPublicaciones, publicacion],
+      userPublicaciones: [...state.userPublicaciones, publicacion],
     })),
-    addProyectosUser: (publicacion) =>
-      set((state) => ({
-        userProyectos : [ ...state.userProyectos, publicacion],
-      })),
+  addProyectosUser: (publicacion) =>
+    set((state) => ({
+      userProyectos: [...state.userProyectos, publicacion],
+    })),
+  setContactos: (contacto) =>
+    set((state) => ({
+      contactos: [...state.contactos, contacto],
+    })),
 }));

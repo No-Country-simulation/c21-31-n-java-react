@@ -15,9 +15,9 @@ export default function Home() {
   const user = useUserStore((state) => state.user);
   console.log(user)
   const amigos = [
-    { nombre: "Ezequiel", apellido: "Ramos", rol: "Desarrollador Backend" },
-    { nombre: "Juanma", apellido: "Lencina", rol: "Desarrollador Frontend" },
-    { nombre: "Mateo", apellido: "Gomez", rol: "Desarrollador Fullstack" },
+    { nombre: "Ezequiel", apellido: "Ramos", rol: "Desarrollador Backend", image: "https://lombreach.es/wp-content/uploads/usuario-sin-foto.png" },
+    { nombre: "Juanma", apellido: "Lencina", rol: "Desarrollador Frontend", image: "https://lombreach.es/wp-content/uploads/usuario-sin-foto.png" },
+    { nombre: "Mateo", apellido: "Gomez", rol: "Desarrollador Fullstack", image: "https://lombreach.es/wp-content/uploads/usuario-sin-foto.png"},
   ];
 
   const [paginaActiva, setPaginaActiva] = useState("dest");
