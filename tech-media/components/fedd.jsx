@@ -4,11 +4,12 @@ import ComponentInputCard from "./cardCreate";
 import "./feed.css";
 import BarraAmigos from "./barra-amigos";
 import Link from "next/link";
+import { useUserStore } from "@/store";
 
 export default function Feed({ amigos }) {
   const llave = false;
-
-  const publicaciones = [
+  const publicaciones = useUserStore((state) => state.proyectos);
+  /*  const publicaciones = [
     {
       titulo: "Publicación 1",
       descripcion:
@@ -98,7 +99,7 @@ export default function Feed({ amigos }) {
       },
     },
   ];
-
+ */
   return (
     <div className="p-5 flex flex-col lg:flex-row lg:gap-8">
       {/* Componente de subir proyecto (lado derecho) */}

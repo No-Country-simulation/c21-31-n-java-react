@@ -1,11 +1,16 @@
 "use client";
 
 import { useState } from "react";
+import { useUserStore } from "../store"; // Asegúrate de que esta ruta sea correcta
 
 export default function ComponentInputCard({ llave }) {
   const [projectName, setProjectName] = useState("");
+  const [projectDescription, setProjectDescription] = useState("");
   const [selectedFile, setSelectedFile] = useState(null);
-  const [uploadType, setUploadType] = useState(null);
+
+  // Asegúrate de que addProyecto esté obteniéndose correctamente de useUserStore
+  const addProyecto = useUserStore((state) => state.addPublicacion);
+  const addPublicacion = useUserStore((state) => state.addPublicacion1);
 
   const handleFileChange = (event) => {
     if (event.target.files && event.target.files[0]) {
@@ -13,13 +18,54 @@ export default function ComponentInputCard({ llave }) {
     }
   };
 
-  const handleUpload = async () => {
-    console.log("Uploading project:", {
-      projectName,
-      selectedFile,
-      uploadType,
-    });
-    // Future implementation for sending data to the server
+  const handleUpload = () => {
+    if (addProyecto) {
+      const nuevoProyecto = {
+        titulo: projectName,
+        descripcion: projectDescription,
+        imagen: selectedFile ? URL.createObjectURL(selectedFile) : "",
+        usuario: {
+          nombre: "Nuevo",
+          apellido: "Usuario",
+          rol: "Desarrollador",
+        },
+      };
+
+      // Llama a addProyecto para agregar el proyecto
+      addProyecto(nuevoProyecto);
+
+      // Limpia los campos
+      setProjectName("");
+      setProjectDescription("");
+      setSelectedFile(null);
+    } else {
+      console.error("addProyecto no está definido");
+    }
+  };
+
+  const handleUploadPublicacion = () => {
+    if (addPublicacion) {
+      const nuevoPublicacion = {
+        titulo: projectName,
+        descripcion: projectDescription,
+        imagen: selectedFile ? URL.createObjectURL(selectedFile) : "",
+        usuario: {
+          nombre: "Nuevo",
+          apellido: "Usuario",
+          rol: "Desarrollador",
+        },
+      };
+
+      // Llama a addProyecto para agregar el proyecto
+      addProyecto(nuevoPublicacion);
+
+      // Limpia los campos
+      setProjectName("");
+      setProjectDescription("");
+      setSelectedFile(null);
+    } else {
+      console.error("addProyecto no está definido");
+    }
   };
 
   return (
@@ -28,123 +74,53 @@ export default function ComponentInputCard({ llave }) {
         <div className="w-10 h-10 rounded-full bg-gray-500 flex items-center justify-center mr-4 text-lg text-white">
           E
         </div>
-        {!llave ? (
-          <h2 className="text-lg font-bold">Crear Publicación</h2>
-        ) : (
-          <h2 className="text-lg font-bold">Subir un proyecto</h2>
-        )}
+        <h2 className="text-lg font-bold">
+          {llave ? "Subir un proyecto" : "Crear Publicación"}
+        </h2>
       </div>
       <div className="flex flex-col gap-4">
         <div>
-          {!llave ? (
-            <>
-              <label htmlFor="project-name" className="block mb-1">
-                Descripción de la Publicación:
-              </label>
-              <input
-                id="project-name"
-                value={projectName}
-                onChange={(e) => setProjectName(e.target.value)}
-                placeholder="Texto"
-                className="w-full p-2 border border-gray-300 rounded-md outline-none"
-              />
-            </>
-          ) : (
-            <>
-              <label htmlFor="project-name" className="block mb-1">
-                Nombre del proyecto:
-              </label>
-              <input
-                id="project-name"
-                value={projectName}
-                onChange={(e) => setProjectName(e.target.value)}
-                placeholder="TechMedia"
-                className="w-full p-2 border border-gray-300 rounded-md outline-none"
-              />
-            </>
-          )}
+          <label htmlFor="project-name" className="block mb-1">
+            Nombre del proyecto:
+          </label>
+          <input
+            id="project-name"
+            value={projectName}
+            onChange={(e) => setProjectName(e.target.value)}
+            placeholder="Nombre del proyecto"
+            className="w-full p-2 border border-gray-300 rounded-md outline-none"
+          />
         </div>
-        <div className="flex gap-2">
-          {/* <button
-            onClick={() => setUploadType("multimedia")}
-            className={`flex-1 p-2 border ${
-              uploadType === "multimedia" ? "bg-gray-200" : "bg-white"
-            } border-gray-300 rounded-md flex items-center justify-center`}
-          >
-            <span className="mr-1">📷</span> Multimedia
-          </button> */}
-          {/* <button
-            onClick={() => setUploadType("file")}
-            className={`flex-1 p-2 border ${
-              uploadType === "file" ? "bg-gray-200" : "bg-white"
-            } border-gray-300 rounded-md flex items-center justify-center`}
-          >
-            <span className="mr-1">📎</span> Archivo adjunto
-          </button> */}
-          {!llave ? null : (
-            <div className="w-full flex flex-col items-center text-start">
-              <label
-                htmlFor="porject-description"
-                className="block mb-1 w-full"
-              >
-                Descripción del Proyecto:
-              </label>
-              <input
-                id="project-name"
-                value={projectName}
-                onChange={(e) => setProjectName(e.target.value)}
-                placeholder="Red social para la industria Tech"
-                className="w-full p-2 border border-gray-300 rounded-md"
-              />
-              <button
-                onClick={() => setUploadType("code")}
-                className={`flex-1 p-2 border mt-2 w-full ${
-                  uploadType === "code" ? "bg-gray-200" : "bg-white"
-                } border-gray-300 rounded-md flex items-center justify-center`}
-              >
-                <span className="flex justify-start items-center w-full">
-                  <svg
-                    width="30px"
-                    height="100%"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="mr-1"
-                  >
-                    <path
-                      d="M17 17L22 12L17 7M7 7L2 12L7 17M14 3L10 21"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                  Fragmento de Código
-                </span>
-              </button>
-            </div>
-          )}
+        <div>
+          <label htmlFor="project-description" className="block mb-1">
+            Descripción del Proyecto:
+          </label>
+          <input
+            id="project-description"
+            value={projectDescription}
+            onChange={(e) => setProjectDescription(e.target.value)}
+            placeholder="Descripción del proyecto"
+            className="w-full p-2 border border-gray-300 rounded-md"
+          />
         </div>
         <input
           type="file"
           onChange={handleFileChange}
           className="w-full p-2 border border-gray-300 rounded-md"
         />
-        {!llave ? (
-          <>
-            <button
-              onClick={handleUpload}
-              className="w-full p-3 bg-blue-500 text-white font-bold rounded-md"
-            >
-              Subir Publicación
-            </button>
-          </>
-        ) : (
+        {llave ? (
           <button
             onClick={handleUpload}
             className="w-full p-3 bg-blue-500 text-white font-bold rounded-md"
           >
-            Subir Proyecto
+            {llave ? "Subir Proyecto" : "Subir Publicación"}
+          </button>
+        ) : (
+          <button
+            onClick={handleUploadPublicacion}
+            className="w-full p-3 bg-blue-500 text-white font-bold rounded-md"
+          >
+            Subir Publicación
           </button>
         )}
       </div>
