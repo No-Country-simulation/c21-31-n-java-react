@@ -12,4 +12,26 @@
 	.main-contactos {
 		align-items: center;
 	}
+
+	.icon-buscar {
+		display: none;
+	}
+
+	.buscador {
+		width: 100%;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.container-buscador {
+		flex-direction: row;
+	}
+
+	.buscador {
+		width: 60%;
+	}
+
+	.titles {
+		text-align: center;
+	}
 }

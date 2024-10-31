@@ -66,62 +66,47 @@ export default function Seguidos() {
   return (
     <>
       <Nav />
-      <div className="flex items-center justify-center flex-col m-4 mt-20">
+      <div className="flex items-center justify-center flex-col m-4 mt-24">
         <h1 className="text-[25px]">Seguidos</h1>
         <hr className="w-full max-w-[350px] border-b-2" />
       </div>
-      <div className="flex items-center justify-between m-4 flex-col md:flex-row">
-        <div>
-          <h3>30 Seguidos</h3>
-        </div>
-        <div className="w-full max-w-[100px] flex items-center justify-between mt-2 md:mt-0">
-          <svg
-            width="35px"
-            height="100%"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M21 21L15.0001 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-          {/* <svg
-            width="35px"
-            height="100%"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M6 12H18M3 6H21M9 18H15"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg> */}
-        </div>
+      <div className="flex items-center justify-center gap-2 m-4 flex-col md:flex-row container-buscador">
+        <input
+          type="text"
+          name=""
+          id=""
+          placeholder="Buscar usuario seguido"
+          className="w-[30%] bg-gray-200 p-2 rounded-[27px] outline-none buscador"
+        />
+        <svg
+          width="35px"
+          height="100%"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className="icon-buscar"
+        >
+          <path
+            d="M21 21L15.0001 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
       </div>
       <hr />
 
       <main className="flex flex-col md:flex-row justify-center w-[80%] m-auto main-contactos">
         <div className="w-full md:w-[50%] bg-gray-200 m-4 p-4 rounded-lg">
-          <h1 className="text-xl font-bold text-lef mb-6">Usuarios Seguidos</h1>
+          <h1 className="text-xl font-bold text-lef mb-6 titles">Usuarios Seguidos</h1>
           {users.map((user, index) => (
             <div
               key={index}
               className="flex items-center justify-between bg-gray-100 p-4 mb-4 rounded-lg shadow-md container-user-chat"
             >
               <div className="flex items-center container-datos-user">
-                <img
-                  src={user.image}
-                  className="w-16 h-16 rounded-full mr-4"
-                />
+                <img src={user.image} className="w-16 h-16 rounded-full mr-4" />
                 <div className="flex flex-col gap-1">
                   <div className="flex gap-1">
                     <h3 className="text-xl font-semibold text-gray-800">
@@ -159,7 +144,7 @@ export default function Seguidos() {
           ))}
         </div>
         <div className="w-full md:w-[50%] m-4 bg-gray-200 p-6 rounded-lg">
-          <h2 className="text-xl font-bold text-right mb-6">
+          <h2 className="text-xl font-bold text-right mb-6 titles">
             Más sugerencias para ti
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -168,10 +153,7 @@ export default function Seguidos() {
                 key={index}
                 className="bg-white rounded-lg shadow-md p-4 flex flex-col items-center"
               >
-                <img
-                  src={user.image}
-                  className="w-20 h-20 rounded-full mb-4"
-                />
+                <img src={user.image} className="w-20 h-20 rounded-full mb-4" />
                 <h3 className="text-lg font-semibold text-gray-800">
                   {user.nombre}
                 </h3>
