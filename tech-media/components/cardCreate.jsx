@@ -104,7 +104,7 @@ export default function ComponentInputCard({ llave }) {
             value={projectDescription}
             onChange={(e) => setProjectDescription(e.target.value)}
             placeholder="Descripción del proyecto"
-            className="w-full p-2 border border-gray-300 rounded-md"
+            className="w-full p-2 border border-gray-300 rounded-md outline-none"
           />
         </div>
         <input
