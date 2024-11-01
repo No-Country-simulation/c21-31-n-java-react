@@ -36,8 +36,8 @@ export default function ComponentInputCard({ llave }) {
 
       // Llama a addProyecto para agregar el proyecto
       addProyecto(nuevoProyecto);
-      addProyectoUser(nuevoProyecto)
-      
+      addProyectoUser(nuevoProyecto);
+
       // Limpia los campos
       setProjectName("");
       setProjectDescription("");
@@ -86,25 +86,25 @@ export default function ComponentInputCard({ llave }) {
       <div className="flex flex-col gap-4">
         <div>
           <label htmlFor="project-name" className="block mb-1">
-            Nombre del proyecto:
+            {llave ? "Nombre del proyecto" : "Titulo de la publicación"}
           </label>
           <input
             id="project-name"
             value={projectName}
             onChange={(e) => setProjectName(e.target.value)}
-            placeholder="Nombre del proyecto"
+            placeholder={llave ? "Nombre" : "Titulo"}
             className="w-full p-2 border border-gray-300 rounded-md outline-none"
           />
         </div>
         <div>
           <label htmlFor="project-description" className="block mb-1">
-            Descripción del Proyecto:
+            {llave ? "Descripción del Proyecto" : "Descripción de la Publicación"}
           </label>
           <input
             id="project-description"
             value={projectDescription}
             onChange={(e) => setProjectDescription(e.target.value)}
-            placeholder="Descripción del proyecto"
+            placeholder="Descripción"
             className="w-full p-2 border border-gray-300 rounded-md outline-none"
           />
         </div>
@@ -114,13 +114,12 @@ export default function ComponentInputCard({ llave }) {
           className="w-full p-2 border border-gray-300 rounded-md"
         />
         {llave ? (
-              <button
-              onClick={handleUploadPublicacion}
-              className="w-full p-3 bg-blue-500 text-white font-bold rounded-md"
-            >
-              Subir Proyecto
-            </button>
-         
+          <button
+            onClick={handleUploadPublicacion}
+            className="w-full p-3 bg-blue-500 text-white font-bold rounded-md"
+          >
+            Subir Proyecto
+          </button>
         ) : (
           <button
             onClick={handleUpload}
