@@ -65,8 +65,8 @@ export default function Feed({ amigos }) {
               {/* Comentarios */}
               <div className="mt-3">
                 <h3 className="font-bold text-lg">Comentarios:</h3>
-                {publicacion.comentarios.length > 0 ? (
-                  publicacion.comentarios.map((comentario, i) => (
+                {publicacion?.comentarios?.length > 0 ? (
+                  publicacion?.comentarios?.map((comentario, i) => (
                     <p key={i} className="text-gray-600">
                       <strong>{comentario.usuario.name}: </strong>{" "}
                       {comentario.texto}
@@ -93,27 +93,12 @@ export default function Feed({ amigos }) {
                   type="text"
                   name="comentario"
                   placeholder="Escribe un comentario..."
-                  className="border rounded-md p-2 w-full mb-2 outline-none"
+                  className="border rounded-md p-2 w-full mb-2"
                 />
                 <button
                   type="submit"
-                  className="flex items-center justify-center bg-blue-500 text-white p-2 gap-2 rounded-md overflow-hidden transition-transform duration-200 hover:scale-95 group"
+                  className="bg-blue-500 text-white px-3 py-1 rounded-md"
                 >
-                  <div className="relative">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      width="24"
-                      height="24"
-                      className="transition-transform duration-300 group-hover:rotate-[50deg] animate-hover-move"
-                    >
-                      <path fill="none" d="M0 0h24v24H0z"></path>
-                      <path
-                        fill="currentColor"
-                        d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"
-                      ></path>
-                    </svg>
-                  </div>
                   Comentar
                 </button>
               </form>

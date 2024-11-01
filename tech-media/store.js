@@ -17,7 +17,7 @@ export const useUserStore = create((set) => ({
         apellido: "Fernández",
         rol: "DevOps Engineer",
       },
-      comentarios: [], 
+      comentarios: [],
     },
     {
       titulo: "Novedades de React 18",
@@ -30,7 +30,7 @@ export const useUserStore = create((set) => ({
         apellido: "Mendoza",
         rol: "Frontend Developer",
       },
-      comentarios: [], 
+      comentarios: [],
     },
     {
       titulo: "Patrones de Diseño en Arquitectura de Microservicios",
@@ -43,7 +43,7 @@ export const useUserStore = create((set) => ({
         apellido: "Rodríguez",
         rol: "Software Architect",
       },
-      comentarios: [], 
+      comentarios: [],
     },
     {
       titulo: "Mejores Prácticas de Seguridad en Node.js",
@@ -56,7 +56,7 @@ export const useUserStore = create((set) => ({
         apellido: "Martínez",
         rol: "Backend Developer",
       },
-      comentarios: [], 
+      comentarios: [],
     },
     {
       titulo: "Optimización de Consultas en Bases de Datos SQL",
@@ -69,7 +69,7 @@ export const useUserStore = create((set) => ({
         apellido: "López",
         rol: "Database Administrator",
       },
-      comentarios: [], 
+      comentarios: [],
     },
   ],
 
@@ -90,7 +90,8 @@ export const useUserStore = create((set) => ({
       titulo: "Aplicación de Gestión de Tareas con React Native",
       descripcion:
         "Aplicación móvil para organizar y gestionar tareas, con integración de autenticación y notificaciones push.",
-      imagen: "https://clockify.me/assets/images/es/time-tracker-screenshot-es.svg",
+      imagen:
+        "https://clockify.me/assets/images/es/time-tracker-screenshot-es.svg",
       usuario: {
         nombre: "Lucas",
         apellido: "Pérez",
@@ -101,7 +102,8 @@ export const useUserStore = create((set) => ({
       titulo: "Sistema de Monitoreo de Servidores en Tiempo Real",
       descripcion:
         "Proyecto de monitoreo de servidores con alertas en tiempo real y dashboards interactivos usando Grafana y Prometheus.",
-      imagen: "https://gdm-catalog-fmapi-prod.imgix.net/ProductScreenshot/f03e31e9-0711-450e-a983-e668b359d349.png?auto=format&q=50",
+      imagen:
+        "https://gdm-catalog-fmapi-prod.imgix.net/ProductScreenshot/f03e31e9-0711-450e-a983-e668b359d349.png?auto=format&q=50",
       usuario: {
         nombre: "Silvia",
         apellido: "Torres",
@@ -112,7 +114,8 @@ export const useUserStore = create((set) => ({
       titulo: "Aplicación de Chat en Tiempo Real con Socket.io",
       descripcion:
         "Desarrollo de una aplicación de mensajería con soporte de chats en tiempo real, grupos y notificaciones.",
-      imagen: "https://d1eipm3vz40hy0.cloudfront.net/images/AMER/livechatsoftware22.jpg",
+      imagen:
+        "https://d1eipm3vz40hy0.cloudfront.net/images/AMER/livechatsoftware22.jpg",
       usuario: {
         nombre: "Fernando",
         apellido: "Sosa",
@@ -123,7 +126,8 @@ export const useUserStore = create((set) => ({
       titulo: "Portal de Noticias con Headless CMS y Next.js",
       descripcion:
         "Creación de un portal de noticias utilizando un CMS sin cabeza, con soporte de contenido dinámico y SEO optimizado.",
-      imagen: "https://mqv.biz/wp-content/uploads/2019/03/Portal-digital-de-noticias-a.jpg",
+      imagen:
+        "https://mqv.biz/wp-content/uploads/2019/03/Portal-digital-de-noticias-a.jpg",
       usuario: {
         nombre: "Daniela",
         apellido: "Ramírez",
@@ -163,10 +167,24 @@ export const useUserStore = create((set) => ({
       ),
     })),
 
-    agregarComentario: (index,  comentario, usuario) =>
-      set((state) => {
-        const proyectosActualizados = [...state.proyectos];
-        proyectosActualizados[index].comentarios.push({texto : comentario , usuario});
-        return { proyectos: proyectosActualizados };
-      }),
+  agregarComentario: (index, comentario, usuario) =>
+    set((state) => {
+      const proyectosActualizados = [...state.proyectos];
+
+      if (
+        proyectosActualizados[index] &&
+        Array.isArray(proyectosActualizados[index].comentarios)
+      ) {
+        proyectosActualizados[index].comentarios.push({
+          texto: comentario,
+          usuario,
+        });
+      } else if (proyectosActualizados[index]) {
+        proyectosActualizados[index].comentarios = [
+          { texto: comentario, usuario },
+        ];
+      }
+
+      return { proyectos: proyectosActualizados };
+    }),
 }));
