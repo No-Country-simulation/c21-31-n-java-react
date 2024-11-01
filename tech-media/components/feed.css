@@ -22,3 +22,8 @@
 		flex-direction: column;
 	}
 }
+
+/* Solo activa la animación de subir y bajar cuando el botón está en hover */
+.group:hover .animate-hover-move {
+	animation: hover-move 1s ease-in-out infinite;
+}

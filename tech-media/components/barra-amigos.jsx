@@ -43,7 +43,7 @@ export default function BarraAmigos({ amigos = [] }) {
               className="flex justify-between items-center bg-white p-3 rounded-md shadow-md card-amigos"
             >
               <div className="flex items-center renders-card">
-                <div className="bg-gray-300 w-10 h-10 rounded-full"></div>
+                <img src={amigo.image} alt="" className="w-[50px]"/>
                 <div className="ml-2">
                   <p className="font-bold">
                     {amigo.nombre} {amigo.apellido}
