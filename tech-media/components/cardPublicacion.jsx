@@ -117,9 +117,9 @@ export default function Publicaciones({ amigos }) {
                   </p>
                 </div>
               </div>
-              <button className="bg-blue-500 text-white px-3 py-1 rounded-md">
+              {/* <button className="bg-blue-500 text-white px-3 py-1 rounded-md">
                 Seguir
-              </button>
+              </button> */}
             </div>
 
             {/* Título y Descripción */}
@@ -127,7 +127,7 @@ export default function Publicaciones({ amigos }) {
             <p className="text-gray-700 mb-3">{publicacion.descripcion}</p>
 
             {/* Imagen */}
-            <div className="bg-gray-300 h-48 w-full rounded-md overflow-hidden">
+            <div className="bg-gray-300 h-full w-full rounded-md overflow-hidden">
               <img
                 src={publicacion.imagen}
                 alt="Imagen del proyecto"

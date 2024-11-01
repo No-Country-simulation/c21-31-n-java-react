@@ -131,9 +131,9 @@ export default function PublicacionesSection({ amigos }) {
                     </p>
                   </div>
                 </div>
-                <button className="bg-blue-500 text-white px-3 py-1 rounded-md">
+                {/* <button className="bg-blue-500 text-white px-3 py-1 rounded-md">
                   Seguir
-                </button>
+                </button> */}
               </div>
 
               {/* Título y Descripción */}
