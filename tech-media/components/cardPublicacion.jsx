@@ -1,10 +1,12 @@
 import React from 'react';
 
 import BarraAmigos from "./barra-amigos";
+import { useUserStore } from '@/store';
 
 export default function Publicaciones({ amigos }) {
   // Array harcodeado de publicaciones
-  const publicaciones = [
+  const publicaciones = useUserStore((state) => state.publicacion);
+/*   const publicaciones = [
     {
       titulo: "Proyecto 1",
       descripcion:
@@ -93,7 +95,7 @@ export default function Publicaciones({ amigos }) {
         rol: "Desarrollador Fullstack",
       },
     },
-  ];
+  ]; */
 
   return (
     <div className="p-5">
